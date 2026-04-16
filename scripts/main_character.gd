@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 
+@export var health := 1.0
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -19,3 +23,13 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
+func take_damage(damage):
+	health -= damage
+	if health <= 0.0:
+		die()
+	print("remaining health: " + str(health))
+
+
+func die():
+	print("YOU DIED")
