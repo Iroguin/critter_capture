@@ -17,3 +17,6 @@ func _process(delta: float) -> void:
 func _on_collision_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.take_damage(contact_damage)
+
+func die():
+	pass
