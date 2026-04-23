@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://be3fcm8xy7d0s"]
 
 [ext_resource type="Script" uid="uid://dxj5tbcav2x3o" path="res://scripts/main_character.gd" id="1_ig48j"]
-[ext_resource type="Texture2D" uid="uid://crx7n17b4wqus" path="res://icon.svg" id="1_nrcqd"]
+[ext_resource type="Texture2D" uid="uid://cjwkbbcnc1fd1" path="res://assets/player_test.png" id="3_tqm6u"]
 [ext_resource type="Script" uid="uid://dgdfavu83vu26" path="res://scripts/player_trail.gd" id="5_trail"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ig48j"]
@@ -13,12 +13,9 @@ script = ExtResource("1_ig48j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1064662964]
 shape = SubResource("CircleShape2D_ig48j")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1270341648]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_nrcqd")
-
 [node name="PlayerTrail" type="Line2D" parent="." unique_id=1234567890]
 script = ExtResource("5_trail")
+trail_color = Color(0.9999998, 0.054254577, 0.12416271, 1)
 
 [node name="PlayerTrailLoopParticles" type="CPUParticles2D" parent="." unique_id=1766713396]
 emitting = false
@@ -37,4 +34,9 @@ angular_velocity_min = -90.0
 angular_velocity_max = 90.0
 damping_min = 10.0
 damping_max = 10.0
-color = Color(0, 1, 1, 1)
+color = Color(1, 0.05490196, 0.1254902, 1)
+
+[node name="PlayerTest" type="Sprite2D" parent="." unique_id=1884508317]
+position = Vector2(-13, -16)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_tqm6u")
