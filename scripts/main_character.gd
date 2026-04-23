@@ -4,6 +4,7 @@ const SPEED = 300.0
 
 @export var health := 1.0
 
+
 # the default movement is wasd MovementStrategy is a class
 var current_strategy: MovementStrategy = WASDStrategy.new()
 
@@ -25,6 +26,13 @@ func take_damage(damage):
 
 func die():
 	print("YOU DIED")
+
+
+func _on_player_trail_loop_formed(caught_enemies: Array[Node]) -> void:
+	print("Captured %d enemies!" % caught_enemies.size())
+	for enemy in caught_enemies:
+		if enemy.has_method("die"):
+			enemy.die()
 
 
 func _on_pause_menu_movement_mode_changed(use_mouse: bool) -> void:
