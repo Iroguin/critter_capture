@@ -3,7 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://crx7n17b4wqus" path="res://icon.svg" id="1_s3esy"]
 [ext_resource type="PackedScene" uid="uid://be3fcm8xy7d0s" path="res://scenes/main_character.tscn" id="2_72e8q"]
 [ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/enemy.tscn" id="3_d2op2"]
-[ext_resource type="PackedScene" uid="uid://6dbwplu5fjlk" path="res://scenes/pause_menu.tscn" id="4_0rdsr"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="4_0rdsr"]
+[ext_resource type="PackedScene" uid="uid://cmppsxkjtonhy" path="res://scenes/basic_enemy.tscn" id="5_wi4c7"]
+[ext_resource type="PackedScene" uid="uid://dn02x44wlvgmo" path="res://scenes/enemy_too.tscn" id="6_70vka"]
+[ext_resource type="PackedScene" uid="uid://pylkxuqda8jr" path="res://scenes/enemy_three.tscn" id="7_2l77h"]
 
 [node name="Main_Game" type="Node2D" unique_id=744680119]
 
@@ -18,5 +21,14 @@ position = Vector2(575, 344)
 position = Vector2(239, 541)
 
 [node name="Pause_Menu" parent="." unique_id=1157981104 instance=ExtResource("4_0rdsr")]
+
+[node name="basic_enemy" parent="." unique_id=77565977 instance=ExtResource("5_wi4c7")]
+position = Vector2(571, 189)
+
+[node name="enemy_too" parent="." unique_id=1442419849 instance=ExtResource("6_70vka")]
+position = Vector2(326, 301)
+
+[node name="enemy_three" parent="." unique_id=2087995049 instance=ExtResource("7_2l77h")]
+position = Vector2(231, 422)
 
 [connection signal="movement_mode_changed" from="Pause_Menu" to="main_character" method="_on_pause_menu_movement_mode_changed"]
