@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://6dbwplu5fjlk"]
+[gd_scene format=3 uid="uid://6dbwplu5fjlk"]
 
 [ext_resource type="Script" uid="uid://dtprmhinmy6o5" path="res://scripts/pause_menu.gd" id="1_n87rw"]
 
@@ -43,10 +43,29 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Toggle Movement"
 
+[node name="Color_Button" type="Button" parent="Control/VBoxContainer" unique_id=998863376]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Color Changer"
+
+[node name="ColorPicker" type="ColorPicker" parent="Control/VBoxContainer/Color_Button" unique_id=552462511]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.7440001
+anchor_top = 0.33
+anchor_right = 1.7440001
+anchor_bottom = 0.33
+offset_left = -150.05203
+offset_top = -316.99
+offset_right = 149.94797
+offset_bottom = 317.01
+
 [node name="Quit_Button" type="Button" parent="Control/VBoxContainer" unique_id=179561732]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [connection signal="pressed" from="Control/VBoxContainer/Movement_Toggle_Button" to="." method="_on_movement_toggle_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Color_Button" to="." method="_on_color_button_pressed"]
+[connection signal="color_changed" from="Control/VBoxContainer/Color_Button/ColorPicker" to="." method="_on_color_picker_color_changed"]
 [connection signal="pressed" from="Control/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

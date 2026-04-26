@@ -19,4 +19,5 @@ func _on_collision_detection_area_body_entered(body: Node2D) -> void:
 		body.take_damage(contact_damage)
 
 func die():
-	pass
+	SignalHandler.enemy_captured.emit(1) # number int is points for highscore, placehonder 1
+	queue_free()

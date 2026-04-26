@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e02qdn3w63mn"
-path="res://.godot/imported/critter_sprite_test.png-931bfd93773cb577d6ae6c2cf4816677.ctex"
+uid="uid://bqw4hhgqgi3jw"
+path="res://.godot/imported/toukka_critter.png-b77e523550f2812541c378c26ac399ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/critter_sprite_test.png"
-dest_files=["res://.godot/imported/critter_sprite_test.png-931bfd93773cb577d6ae6c2cf4816677.ctex"]
+source_file="res://assets/sprites/toukka_critter.png"
+dest_files=["res://.godot/imported/toukka_critter.png-b77e523550f2812541c378c26ac399ef.ctex"]
 
 [params]
 

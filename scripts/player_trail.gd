@@ -2,7 +2,7 @@ extends Line2D
 class_name PlayerTrail
 
 @export var max_points: int = 300
-@export var min_sample_distance: float = 5.0
+@export var min_sample_distance: float = 2.0
 @export var intersection_skip_points: int = 10
 @export var trail_width: float = 4.0
 @export var trail_color: Color = Color(0.2, 0.8, 1.0, 1.0)
@@ -15,6 +15,14 @@ func _ready() -> void:
 	top_level = true
 	width = trail_width
 	default_color = trail_color
+	SignalHandler.trail_color_changed.connect(_on_trail_color_changed)
+
+
+func _on_trail_color_changed(color: Color) -> void:
+	default_color = color
+	var particles := get_parent().get_node_or_null("PlayerTrailLoopParticles") as CPUParticles2D
+	if particles:
+		particles.color = color
 
 
 func _process(_delta: float) -> void:
@@ -48,35 +56,35 @@ func _check_intersection() -> void:
 	if n < intersection_skip_points + 3:
 		return
 
-	var a := _trail[n - 2]
-	var b := _trail[n - 1]
-
-	var check_limit := n - 2 - intersection_skip_points
-	for i in range(check_limit):
-		var hit = _segment_intersect(a, b, _trail[i], _trail[i + 1])
-		if hit == null:
+	# check the last few segments not just the newest one.
+	var lookback := mini(4, n - intersection_skip_points - 2)
+	for k in range(lookback):
+		var a := _trail[n - 2 - k]
+		var b := _trail[n - 1 - k]
+		var check_limit := n - 2 - k - intersection_skip_points
+		if check_limit <= 0:
 			continue
 
-		# build the closed polygon 
-		# intersection point -> trail tip -> back
-		var polygon := PackedVector2Array()
-		polygon.append(hit)
-		for j in range(i + 1, n):
-			polygon.append(_trail[j])
+		for i in range(check_limit):
+			var hit = _segment_intersect(a, b, _trail[i], _trail[i + 1])
+			if hit == null:
+				continue
 
-		var caught: Array[Node] = []
-		for enemy in get_tree().get_nodes_in_group("enemies"):
-			if enemy is Node2D:
-				if Geometry2D.is_point_in_polygon((enemy as Node2D).global_position, polygon):
-					caught.append(enemy)
+			var polygon := PackedVector2Array()
+			polygon.append(hit)
+			for j in range(i + 1, n):
+				polygon.append(_trail[j])
 
-		_spawn_loop_particles(polygon)
-		SignalHandler.loop_formed.emit(caught)
-		print("LOOP FORMED")
+			var caught: Array[Node] = []
+			for enemy in get_tree().get_nodes_in_group("enemies"):
+				if enemy is Node2D:
+					if Geometry2D.is_point_in_polygon((enemy as Node2D).global_position, polygon):
+						caught.append(enemy)
 
-		# reset player starts a new trail from the intersection
-		_trail = [hit]
-		return
+			_spawn_loop_particles(polygon)
+			SignalHandler.loop_formed.emit(caught)
+			_trail = [hit]
+			return
 
 
 func _spawn_loop_particles(polygon: PackedVector2Array) -> void:

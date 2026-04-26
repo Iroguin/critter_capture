@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxgb5dysbgh5v"
-path="res://.godot/imported/rat_critter.png-83a0e6f6dd5b70fb48d6ab1e8d4116ab.ctex"
+uid="uid://cjwkbbcnc1fd1"
+path="res://.godot/imported/player_test.png-0ba3578d99717cbc1aa0f01541fade6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rat_critter.png"
-dest_files=["res://.godot/imported/rat_critter.png-83a0e6f6dd5b70fb48d6ab1e8d4116ab.ctex"]
+source_file="res://assets/sprites/player_test.png"
+dest_files=["res://.godot/imported/player_test.png-0ba3578d99717cbc1aa0f01541fade6b.ctex"]
 
 [params]
 

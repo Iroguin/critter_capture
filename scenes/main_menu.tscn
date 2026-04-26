@@ -31,6 +31,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = " Start "
 
+[node name="Settings_Button" type="Button" parent="VBoxContainer" unique_id=1256151159]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
 [node name="Exit_Button" type="Button" parent="VBoxContainer" unique_id=354179233]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -38,4 +43,5 @@ text = " Quit
 "
 
 [connection signal="pressed" from="VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings_Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cxxoxc5uh6i26"]
+
+[ext_resource type="Script" uid="uid://cv2b4x70cvmlq" path="res://scripts/main_ui.gd" id="1_fnul3"]
+
+[node name="main_ui" type="CanvasLayer" unique_id=415378489]
+script = ExtResource("1_fnul3")
+
+[node name="Control" type="Control" parent="." unique_id=55346309]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1112293056]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="highscore_label" type="Label" parent="Control/MarginContainer" unique_id=1259040760]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 2

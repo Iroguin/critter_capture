@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0sauxki0h4el"
-path="res://.godot/imported/fish_critter.png-45611090cf6d91519f1ea1c74e3056c0.ctex"
+path="res://.godot/imported/fish_critter.png-d80a6da4c9d3d6b202d419fbb2f94016.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fish_critter.png"
-dest_files=["res://.godot/imported/fish_critter.png-45611090cf6d91519f1ea1c74e3056c0.ctex"]
+source_file="res://assets/sprites/fish_critter.png"
+dest_files=["res://.godot/imported/fish_critter.png-d80a6da4c9d3d6b202d419fbb2f94016.ctex"]
 
 [params]
 
