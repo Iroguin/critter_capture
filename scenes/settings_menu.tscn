@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://l0g1yl2kdb4i"]
+
+[ext_resource type="Script" uid="uid://c1hwegxc4bjab" path="res://scripts/settings_menu.gd" id="1_05p07"]
+[ext_resource type="Script" uid="uid://1leioe262bq4" path="res://scripts/volume_slider.gd" id="2_cr101"]
+
+[node name="settings_menu" type="CanvasLayer" unique_id=1707542584]
+script = ExtResource("1_05p07")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2104914307]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.37967038, 0.60926604, 0.6737199, 1)
+
+[node name="Control" type="Control" parent="." unique_id=209050001]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=764664095]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1707503877]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Default_Options" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=1145466618]
+layout_mode = 2
+
+[node name="Default_Options_Title" type="Label" parent="Control/MarginContainer/HBoxContainer/Default_Options" unique_id=216401232]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Back"
+
+[node name="Return_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Default_Options" unique_id=715401349]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Return to Main Menu"
+
+[node name="Quit_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Default_Options" unique_id=738573112]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = " Quit 
+"
+
+[node name="VSeparator" type="VSeparator" parent="Control/MarginContainer/HBoxContainer" unique_id=433670283]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Volume_Controls" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=1718119634]
+layout_mode = 2
+
+[node name="Volume_Controls_Title" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls" unique_id=1185652878]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Volume Controls"
+
+[node name="Master_Volume_Panel" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls" unique_id=703203882]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Master_Volume_Panel" unique_id=1975014745]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Master_Volume_Panel/MarginContainer" unique_id=421116768]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer3" unique_id=1867020837]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Master Volume"
+
+[node name="Volume_Slider" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer3" unique_id=1026728368]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_cr101")
+bus_name = "Master"
+
+[node name="UI_Volume_Panel3" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls" unique_id=1989626267]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel3" unique_id=107018613]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel3/MarginContainer" unique_id=1327204783]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel3/MarginContainer/VBoxContainer3" unique_id=1004344603]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "UI Volume"
+
+[node name="Volume_Slider" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel3/MarginContainer/VBoxContainer3" unique_id=382484726]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_cr101")
+bus_name = "UI"
+
+[node name="SFX_Volume_Panel2" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls" unique_id=2067392093]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel2" unique_id=2055365996]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel2/MarginContainer" unique_id=1411094287]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel2/MarginContainer/VBoxContainer3" unique_id=2063526120]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "SFX Volume"
+
+[node name="Volume_Slider" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel2/MarginContainer/VBoxContainer3" unique_id=1857918025]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_cr101")
+bus_name = "SFX"
+
+[node name="VSeparator2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer" unique_id=204253221]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Video_Controls" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=1796301907]
+layout_mode = 2
+
+[node name="Video_Controls_Title" type="Label" parent="Control/MarginContainer/HBoxContainer/Video_Controls" unique_id=1174466578]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Video Controls"
+
+[node name="Master_Volume_Panel" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Video_Controls" unique_id=683531947]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Master_Volume_Panel" unique_id=935527052]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Master_Volume_Panel/MarginContainer" unique_id=1212003865]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer3" unique_id=1558991159]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Resolution"
+
+[node name="Resoltion_Options" type="OptionButton" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer3" unique_id=780487903]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+
+[node name="Fullscreen_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Video_Controls" unique_id=1033019929]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Fullscreen"
+
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Default_Options/Return_Button" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Default_Options/Quit_Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Video_Controls/Fullscreen_Button" to="." method="_on_fullscreen_button_pressed"]

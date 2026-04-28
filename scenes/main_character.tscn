@@ -13,10 +13,6 @@ script = ExtResource("1_ig48j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1064662964]
 shape = SubResource("CircleShape2D_ig48j")
 
-[node name="PlayerTrail" type="Line2D" parent="." unique_id=1234567890]
-script = ExtResource("5_trail")
-trail_color = Color(0.48452926, 0.9063318, 1, 1)
-
 [node name="PlayerTrailLoopParticles" type="CPUParticles2D" parent="." unique_id=1766713396]
 emitting = false
 amount = 1
@@ -41,3 +37,7 @@ color = Color(0.4862745, 0.90588236, 1, 1)
 position = Vector2(-13, -16)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_tqm6u")
+
+[node name="PlayerTrail" type="Line2D" parent="." unique_id=1234567890]
+script = ExtResource("5_trail")
+trail_color = Color(0.48452926, 0.9063318, 1, 1)

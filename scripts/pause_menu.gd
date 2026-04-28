@@ -55,3 +55,10 @@ func _on_color_button_pressed() -> void:
 
 func _on_color_picker_color_changed(color: Color) -> void:
 	SignalHandler.trail_color_changed.emit(color)
+
+
+func _on_return_button_pressed() -> void:
+	AuidioHandler.play_sfx(CLICK_SFX, "UI")
+	await get_tree().create_timer(0.11).timeout
+	toggle_pause_menu()
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

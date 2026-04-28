@@ -2,46 +2,48 @@
 
 [ext_resource type="Script" uid="uid://fbuxsdbha20a" path="res://scripts/control.gd" id="1_l6cm7"]
 
-[node name="Main_menu" type="Control" unique_id=1759605343]
+[node name="Main_menu" type="CanvasLayer" unique_id=40414047]
+script = ExtResource("1_l6cm7")
+
+[node name="Control" type="Control" parent="." unique_id=1616037298]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_l6cm7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1189259419]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1189259419]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -33.0
-offset_right = 23.0
-offset_bottom = 33.0
+offset_left = -66.0
+offset_top = -83.5
+offset_right = 66.0
+offset_bottom = 83.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Start_Button" type="Button" parent="VBoxContainer" unique_id=1323190418]
+[node name="Start_Button" type="Button" parent="Control/VBoxContainer" unique_id=1323190418]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = " Start "
 
-[node name="Settings_Button" type="Button" parent="VBoxContainer" unique_id=1256151159]
+[node name="Settings_Button" type="Button" parent="Control/VBoxContainer" unique_id=1256151159]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 
-[node name="Exit_Button" type="Button" parent="VBoxContainer" unique_id=354179233]
+[node name="Quit_Button" type="Button" parent="Control/VBoxContainer" unique_id=354179233]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = " Quit 
 "
 
-[connection signal="pressed" from="VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings_Button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
