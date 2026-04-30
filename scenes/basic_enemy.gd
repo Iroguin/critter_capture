@@ -5,7 +5,7 @@ var y_val = self.position.y
 var screen_width = get_viewport_rect().size.x
 var screen_height = get_viewport_rect().size.y
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	velocity.x = 100
 	velocity.y = 100
 	if is_on_wall():
