@@ -1,9 +1,14 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 400.0
+const DEATH_ANIMATION_DURATION := 1.2
 
 @export var health := 1.0
 
+@onready var sprite := $PlayerTest
+@onready var collision := $CollisionShape2D
+@onready var trail :=  $PlayerTrail
+@onready var particles_template := $PlayerTrailLoopParticles
 
 # the default movement is wasd MovementStrategy is a class
 var current_strategy: MovementStrategy = WASDStrategy.new()
@@ -12,8 +17,12 @@ var current_strategy: MovementStrategy = WASDStrategy.new()
 func _ready() -> void:
 	add_to_group("player")
 	SignalHandler.loop_formed.connect(_on_loop_formed)
+	GameStateHandler.reset()
 
 func _physics_process(delta: float) -> void:
+	if not GameStateHandler.alive:
+		velocity = Vector2.ZERO
+		return
 	# current strategy governs movement it can be found in "res://scripts/player_movement/"
 	velocity = current_strategy.get_movement(self, SPEED)
 	move_and_slide()
@@ -26,7 +35,29 @@ func take_damage(damage):
 
 
 func die():
-	print("YOU DIED")
+	if not GameStateHandler.alive:
+		return
+	GameStateHandler.start_death_sequence()
+	_explode()
+	trail.explode()
+	await get_tree().create_timer(DEATH_ANIMATION_DURATION).timeout
+	GameStateHandler.end_game()
+
+
+func _explode() -> void:
+	sprite.visible = false
+	collision.set_deferred("disabled", true)
+
+	var burst := particles_template.duplicate() as CPUParticles2D
+	burst.process_mode = Node.PROCESS_MODE_ALWAYS
+	burst.amount = 80
+	burst.scale_amount_max = 8.0
+	burst.initial_velocity_min = 60.0
+	burst.initial_velocity_max = 200.0
+	get_tree().current_scene.add_child(burst)
+	burst.global_position = global_position
+	burst.emitting = true
+	get_tree().create_timer(burst.lifetime + 0.5).timeout.connect(burst.queue_free)
 
 
 func _on_loop_formed(caught_enemies: Array[Node]) -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e02qdn3w63mn"
-path="res://.godot/imported/critter_sprite_test.png-30301400a7481654c4cb0fef6bd5c43d.ctex"
+uid="uid://bqmw0wwg7k8ki"
+path="res://.godot/imported/Critter_BG_empty.png-c4a9d9ebacabda7ba517903843192c96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/critter_sprite_test.png"
-dest_files=["res://.godot/imported/critter_sprite_test.png-30301400a7481654c4cb0fef6bd5c43d.ctex"]
+source_file="res://assets/sprites/backgrounds/Critter_BG_empty.png"
+dest_files=["res://.godot/imported/Critter_BG_empty.png-c4a9d9ebacabda7ba517903843192c96.ctex"]
 
 [params]
 

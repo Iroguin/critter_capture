@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://be3fcm8xy7d0s"]
 
 [ext_resource type="Script" uid="uid://dxj5tbcav2x3o" path="res://scripts/main_character.gd" id="1_ig48j"]
-[ext_resource type="Texture2D" uid="uid://cjwkbbcnc1fd1" path="res://assets/sprites/player_test.png" id="3_tqm6u"]
+[ext_resource type="Texture2D" uid="uid://cjwkbbcnc1fd1" path="res://assets/sprites/critters/player_test.png" id="3_tqm6u"]
 [ext_resource type="Script" uid="uid://dgdfavu83vu26" path="res://scripts/player_trail.gd" id="5_trail"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ig48j"]
 radius = 18.0
 
 [node name="Main_Character" type="CharacterBody2D" unique_id=1590444253]
+scale = Vector2(2, 2)
 script = ExtResource("1_ig48j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1064662964]

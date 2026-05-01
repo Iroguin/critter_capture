@@ -1,6 +1,6 @@
-[gd_scene load_steps=0 format=3 uid="uid://dn02x44wlvgmo"]
+[gd_scene format=3 uid="uid://dn02x44wlvgmo"]
 
-[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/enemy.tscn" id="1_ykdbl"]
+[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_ykdbl"]
 [ext_resource type="Script" uid="uid://bhqw6l4c5g75k" path="res://scripts/enemy_too.gd" id="2_aitqa"]
 
 [node name="Enemy" unique_id=481933772 instance=ExtResource("1_ykdbl")]

@@ -23,6 +23,8 @@ config/icon="res://icon.svg"
 
 SignalHandler="*uid://cwvi8p1j4h30b"
 AuidioHandler="*uid://cvg77xu4t335t"
+GameConfig="*res://scripts/globals/game_config.gd"
+GameStateHandler="*uid://ob23k1053eco"
 
 [display]
 

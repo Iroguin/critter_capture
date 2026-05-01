@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c524ir8whb8hd"]
 
-[ext_resource type="Script" uid="uid://fbuxsdbha20a" path="res://scripts/control.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://fbuxsdbha20a" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 
 [node name="Main_menu" type="CanvasLayer" unique_id=40414047]
 script = ExtResource("1_l6cm7")
@@ -13,37 +13,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1189259419]
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1492981959]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.0
-offset_top = -83.5
-offset_right = 66.0
-offset_bottom = 83.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1189259419]
+layout_mode = 2
+size_flags_horizontal = 4
 alignment = 1
 
-[node name="Start_Button" type="Button" parent="Control/VBoxContainer" unique_id=1323190418]
+[node name="Start_Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1323190418]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = " Start "
 
-[node name="Settings_Button" type="Button" parent="Control/VBoxContainer" unique_id=1256151159]
+[node name="High_Scores_Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=213417362]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "High Scores"
+
+[node name="Settings_Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1256151159]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 
-[node name="Quit_Button" type="Button" parent="Control/VBoxContainer" unique_id=354179233]
+[node name="Quit_Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=354179233]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = " Quit 
+text = " Quit Game
 "
 
-[connection signal="pressed" from="Control/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Settings_Button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
+[node name="High_Scores_Label" type="Label" parent="Control/MarginContainer" unique_id=1611491028]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/High_Scores_Button" to="." method="_on_high_scores_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Settings_Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

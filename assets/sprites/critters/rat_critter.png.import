@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxgb5dysbgh5v"
-path="res://.godot/imported/rat_critter.png-8d0e4b79055e21cf35036d53720b7d91.ctex"
+path="res://.godot/imported/rat_critter.png-b5367cb27ea16e7740bec77e3dea530e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/rat_critter.png"
-dest_files=["res://.godot/imported/rat_critter.png-8d0e4b79055e21cf35036d53720b7d91.ctex"]
+source_file="res://assets/sprites/critters/rat_critter.png"
+dest_files=["res://.godot/imported/rat_critter.png-b5367cb27ea16e7740bec77e3dea530e.ctex"]
 
 [params]
 

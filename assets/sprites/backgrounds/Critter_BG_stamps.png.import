@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjwkbbcnc1fd1"
-path="res://.godot/imported/player_test.png-0ba3578d99717cbc1aa0f01541fade6b.ctex"
+uid="uid://bgv2a333bxttx"
+path="res://.godot/imported/Critter_BG_stamps.png-4144bc60a91ad9e15c6592343621b10c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player_test.png"
-dest_files=["res://.godot/imported/player_test.png-0ba3578d99717cbc1aa0f01541fade6b.ctex"]
+source_file="res://assets/sprites/backgrounds/Critter_BG_stamps.png"
+dest_files=["res://.godot/imported/Critter_BG_stamps.png-4144bc60a91ad9e15c6592343621b10c.ctex"]
 
 [params]
 

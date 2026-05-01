@@ -1,7 +1,7 @@
-[gd_scene load_steps=0 format=3 uid="uid://cmppsxkjtonhy"]
+[gd_scene format=3 uid="uid://cmppsxkjtonhy"]
 
-[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/enemy.tscn" id="1_3i4hm"]
-[ext_resource type="Script" uid="uid://d3b8tnodxpry7" path="res://scenes/basic_enemy.gd" id="2_md22f"]
+[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_3i4hm"]
+[ext_resource type="Script" uid="uid://d3b8tnodxpry7" path="res://scripts/basic_enemy.gd" id="2_md22f"]
 
 [node name="Enemy" unique_id=481933772 instance=ExtResource("1_3i4hm")]
 script = ExtResource("2_md22f")

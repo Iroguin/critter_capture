@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://b3ohttxonas0y"]
 
-[ext_resource type="Texture2D" uid="uid://crx7n17b4wqus" path="res://icon.svg" id="1_s3esy"]
 [ext_resource type="Script" uid="uid://dlq5poa04qroa" path="res://scripts/main_game.gd" id="1_wi4c7"]
 [ext_resource type="PackedScene" uid="uid://be3fcm8xy7d0s" path="res://scenes/main_character.tscn" id="2_72e8q"]
-[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/enemy.tscn" id="3_d2op2"]
+[ext_resource type="Texture2D" uid="uid://bqmw0wwg7k8ki" path="res://assets/sprites/backgrounds/Critter_BG_empty.png" id="3_70vka"]
 [ext_resource type="PackedScene" uid="uid://6dbwplu5fjlk" path="res://scenes/pause_menu.tscn" id="4_0rdsr"]
-[ext_resource type="Texture2D" uid="uid://e02qdn3w63mn" path="res://assets/sprites/critter_sprite_test.png" id="5_ipu61"]
+[ext_resource type="Texture2D" uid="uid://bgv2a333bxttx" path="res://assets/sprites/backgrounds/Critter_BG_stamps.png" id="5_2l77h"]
+[ext_resource type="Texture2D" uid="uid://bhid8kq62kn8i" path="res://assets/sprites/backgrounds/Critter_BG_doodles.png" id="6_wi4c7"]
 [ext_resource type="PackedScene" uid="uid://cxxoxc5uh6i26" path="res://scenes/main_ui.tscn" id="6_ygxny"]
+[ext_resource type="Texture2D" uid="uid://ce2072cmg5l58" path="res://assets/sprites/backgrounds/Critter_BG_flowers.png" id="8_2l77h"]
+[ext_resource type="PackedScene" uid="uid://dol44bffegmq7" path="res://scenes/game_over_screen.tscn" id="8_70vka"]
 
 [sub_resource type="Curve2D" id="Curve2D_70vka"]
 _data = {
@@ -17,26 +19,47 @@ point_count = 5
 [node name="Main_Game" type="Node2D" unique_id=744680119]
 script = ExtResource("1_wi4c7")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1789691961]
-position = Vector2(64, 64)
-texture = ExtResource("1_s3esy")
+[node name="Backgrounds" type="Node" parent="." unique_id=1945397297]
+
+[node name="CritterBgEmpty" type="Sprite2D" parent="Backgrounds" unique_id=1716569435]
+visible = false
+z_index = -1
+position = Vector2(960, 540)
+scale = Vector2(0.9700001, 1)
+texture = ExtResource("3_70vka")
+
+[node name="CritterBgDoodles" type="Sprite2D" parent="Backgrounds" unique_id=328519435]
+visible = false
+z_index = -1
+position = Vector2(960.00006, 540)
+scale = Vector2(0.969697, 1)
+texture = ExtResource("6_wi4c7")
+
+[node name="CritterBgFlowers" type="Sprite2D" parent="Backgrounds" unique_id=413886566]
+visible = false
+z_index = -1
+position = Vector2(960, 540)
+scale = Vector2(0.97, 1)
+texture = ExtResource("8_2l77h")
+
+[node name="CritterBgStamps" type="Sprite2D" parent="Backgrounds" unique_id=2096426351]
+visible = false
+z_index = -1
+position = Vector2(960, 540)
+scale = Vector2(0.97, 1)
+texture = ExtResource("5_2l77h")
 
 [node name="main_character" parent="." unique_id=1590444253 instance=ExtResource("2_72e8q")]
-position = Vector2(575, 344)
-
-[node name="Enemy" parent="." unique_id=481933772 instance=ExtResource("3_d2op2")]
-position = Vector2(239, 541)
+position = Vector2(910, 540)
 
 [node name="Pause_Menu" parent="." unique_id=1157981104 instance=ExtResource("4_0rdsr")]
-
-[node name="CritterSpriteTest" type="Sprite2D" parent="." unique_id=988660624]
-position = Vector2(416, 527)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_ipu61")
 
 [node name="main_ui" parent="." unique_id=2102707382 instance=ExtResource("6_ygxny")]
 
 [node name="Enemy_Spawn_Path" type="Path2D" parent="." unique_id=16231133]
 curve = SubResource("Curve2D_70vka")
+
+[node name="Game_Over_Screen" parent="." unique_id=1130014640 instance=ExtResource("8_70vka")]
+visible = false
 
 [connection signal="movement_mode_changed" from="Pause_Menu" to="main_character" method="_on_pause_menu_movement_mode_changed"]

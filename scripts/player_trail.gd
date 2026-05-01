@@ -9,6 +9,7 @@ class_name PlayerTrail
 
 var _trail: Array[Vector2] = []
 var _player: Node2D
+var _exploded: bool = false
 
 
 func _ready() -> void:
@@ -26,6 +27,8 @@ func _on_trail_color_changed(color: Color) -> void:
 
 
 func _process(_delta: float) -> void:
+	if _exploded:
+		return
 	if not _player:
 		_player = get_tree().get_first_node_in_group("player") as Node2D
 		if not _player:
@@ -35,6 +38,23 @@ func _process(_delta: float) -> void:
 	_sample(_player.global_position)
 	_check_intersection()
 	_redraw()
+
+
+func explode() -> void:
+	_exploded = true
+	var template := get_parent().get_node_or_null("PlayerTrailLoopParticles") as CPUParticles2D
+	if template:
+		var scene_root := get_tree().current_scene
+		var step := maxi(1, _trail.size() / 12)
+		for i in range(0, _trail.size(), step):
+			var p := template.duplicate() as CPUParticles2D
+			p.process_mode = Node.PROCESS_MODE_ALWAYS
+			scene_root.add_child(p)
+			p.global_position = _trail[i]
+			p.emitting = true
+			get_tree().create_timer(p.lifetime + 0.5).timeout.connect(p.queue_free)
+	_trail.clear()
+	clear_points()
 
 
 

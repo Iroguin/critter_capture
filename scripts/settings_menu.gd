@@ -15,27 +15,22 @@ const RESOLUTIONS = {
 
 func _ready() -> void:
 	resolution_options.clear()
-	var current_size := DisplayServer.window_get_size()
+	var saved_size := GameConfig.get_resolution()
 	var current_index := 0
 	var i := 0
 	for res_string in RESOLUTIONS:
 		resolution_options.add_item(res_string)
-		if RESOLUTIONS[res_string] == current_size:
+		if RESOLUTIONS[res_string] == saved_size:
 			current_index = i
 		i += 1
 	resolution_options.select(current_index)
-	resolution_options.disabled = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+	resolution_options.disabled = GameConfig.get_fullscreen()
 	resolution_options.item_selected.connect(_on_resolution_selected)
 
 
 func _on_resolution_selected(index: int) -> void:
 	AuidioHandler.play_sfx(CLICK_SFX, "UI")
-	if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_WINDOWED:
-		return
-	var window_size: Vector2i = RESOLUTIONS[resolution_options.get_item_text(index)]
-	DisplayServer.window_set_size(window_size)
-	var screen_center := DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2
-	DisplayServer.window_set_position(screen_center - window_size / 2)
+	GameConfig.set_resolution(RESOLUTIONS[resolution_options.get_item_text(index)])
 
 
 func _on_return_button_pressed() -> void:
@@ -52,9 +47,5 @@ func _on_quit_button_pressed() -> void:
 
 func _on_fullscreen_button_pressed() -> void:
 	AuidioHandler.play_sfx(CLICK_SFX, "UI")
-	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		_on_resolution_selected(resolution_options.selected)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	resolution_options.disabled = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+	GameConfig.set_fullscreen(not GameConfig.get_fullscreen())
+	resolution_options.disabled = GameConfig.get_fullscreen()
