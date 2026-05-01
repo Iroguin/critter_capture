@@ -4,7 +4,7 @@ const WANDER_RADIUS := 120.0
 const WANDER_DRIFT := 60.0
 const TURN_RATE := 2.5
 
-@onready var sprite: Sprite2D = $RatCritter
+
 
 var player: Node2D
 var _wander_offset := Vector2.ZERO
@@ -15,6 +15,7 @@ func _ready() -> void:
 	move_speed = 80.0
 	player = get_tree().get_first_node_in_group("player")
 	_wander_offset = Vector2.from_angle(randf() * TAU) * randf() * WANDER_RADIUS
+
 
 
 func _physics_process(delta: float) -> void:

@@ -8,8 +8,10 @@
 scale = Vector2(2, 2)
 script = ExtResource("2_tuuym")
 contact_damage = 1.0
+max_health = null
+move_speed = null
 
-[node name="RatCritter" type="Sprite2D" parent="." index="3" unique_id=1689010207]
+[node name="Enemy_Sprite" type="Sprite2D" parent="." index="3" unique_id=1689010207]
 position = Vector2(-3.8146973e-06, -3.8146973e-06)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_125od")
