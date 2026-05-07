@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b4t4xnakw5ma2"]
+
+[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_75quu"]
+[ext_resource type="Texture2D" uid="uid://b0sauxki0h4el" path="res://assets/sprites/critters/fish_critter.png" id="2_8cwys"]
+
+[node name="fish_enemy" unique_id=481933772 instance=ExtResource("1_75quu")]
+
+[node name="Enemy_Sprite" type="Sprite2D" parent="." index="4" unique_id=198997329]
+position = Vector2(1.9073486e-06, -3.8146973e-06)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_8cwys")

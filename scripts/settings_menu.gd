@@ -49,3 +49,12 @@ func _on_fullscreen_button_pressed() -> void:
 	AuidioHandler.play_sfx(CLICK_SFX, "UI")
 	GameConfig.set_fullscreen(not GameConfig.get_fullscreen())
 	resolution_options.disabled = GameConfig.get_fullscreen()
+
+
+func _on_squiggle_button_pressed() -> void:
+	AuidioHandler.play_sfx(CLICK_SFX, "UI")
+	SquiggleOverlay.visible = !SquiggleOverlay.visible
+	if SquiggleOverlay.visible:
+		$Control/MarginContainer/HBoxContainer/Video_Controls/Squiggle_Button.text = "Toggle Squiggle Overlay: ON"
+	else:
+		$Control/MarginContainer/HBoxContainer/Video_Controls/Squiggle_Button.text = "Toggle Squiggle Overlay: OFF"

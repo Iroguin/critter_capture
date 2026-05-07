@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://82mwsdxnt2yv"]
+
+[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_qdse8"]
+[ext_resource type="Texture2D" uid="uid://bqw4hhgqgi3jw" path="res://assets/sprites/critters/toukka_critter.png" id="2_8rnt0"]
+
+[node name="toukka_enemy" unique_id=481933772 instance=ExtResource("1_qdse8")]
+contact_damage = 1.0
+
+[node name="Enemy_Sprite" type="Sprite2D" parent="." index="4" unique_id=877748455]
+position = Vector2(-2, -16)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_8rnt0")

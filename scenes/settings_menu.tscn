@@ -29,10 +29,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
+theme_override_constants/margin_left = 200
 theme_override_constants/margin_top = 200
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1707503877]
 layout_mode = 2
@@ -196,6 +196,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Fullscreen"
 
+[node name="Squiggle_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Video_Controls" unique_id=719265641]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Toggle Squiggle Overlay: ON"
+
 [connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Default_Options/Return_Button" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Default_Options/Quit_Button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Video_Controls/Fullscreen_Button" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Video_Controls/Squiggle_Button" to="." method="_on_squiggle_button_pressed"]

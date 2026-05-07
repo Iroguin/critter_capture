@@ -72,3 +72,8 @@ func _on_return_button_pressed() -> void:
 func _on_background_button_pressed() -> void:
 	AuidioHandler.play_sfx(CLICK_SFX, "UI")
 	SignalHandler.background_changed.emit()
+
+
+func _on_squiggle_button_pressed() -> void:
+	AuidioHandler.play_sfx(CLICK_SFX, "UI")
+	SquiggleOverlay.visible = !SquiggleOverlay.visible
