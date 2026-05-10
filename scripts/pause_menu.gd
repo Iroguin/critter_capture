@@ -4,7 +4,7 @@ const CLICK_SFX = "res://assets/audio/625271__gabriel_dornelles__menu-sfx-1.ogg"
 
 signal movement_mode_changed(mode: String)
 var game_paused := false
-var _movement_modes: Array[String] = ["WASD", "Mouse", "Free Move"]
+var _movement_modes: Array[String] = ["WASD", "Mouse", "Free Move", "Controller"]
 var _mode_index := 0
 
 @onready var movement_button := $Control/VBoxContainer/Movement_Toggle_Button
@@ -77,3 +77,9 @@ func _on_background_button_pressed() -> void:
 func _on_squiggle_button_pressed() -> void:
 	AuidioHandler.play_sfx(CLICK_SFX, "UI")
 	SquiggleOverlay.visible = !SquiggleOverlay.visible
+
+
+func _on_button_pressed() -> void:
+	AuidioHandler.play_sfx(CLICK_SFX, "UI")
+	await get_tree().create_timer(0.11).timeout
+	toggle_pause_menu()

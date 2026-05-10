@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://y6dk4q0p6m60"]
 
 [ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_i3jc4"]
+[ext_resource type="Script" uid="uid://dpqq0wqm2u2c1" path="res://scripts/enemies/plant_enemy.gd" id="2_3mu13"]
 [ext_resource type="Texture2D" uid="uid://e02qdn3w63mn" path="res://assets/sprites/critters/critter_sprite_test.png" id="2_flds2"]
 
 [node name="plant_enemy" unique_id=481933772 instance=ExtResource("1_i3jc4")]
+script = ExtResource("2_3mu13")
+direction_spread_degrees = 30.0
 contact_damage = 1.0
-move_speed = 50.0
+move_speed = 60.0
 
 [node name="Enemy_Sprite" type="Sprite2D" parent="." index="4" unique_id=1232621891]
 position = Vector2(-4.9999995, -1.0000005)

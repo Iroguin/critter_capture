@@ -81,6 +81,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
+[node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=1982335146]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+
 [connection signal="pressed" from="Control/VBoxContainer/Movement_Toggle_Button" to="." method="_on_movement_toggle_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Color_Button" to="." method="_on_color_button_pressed"]
 [connection signal="color_changed" from="Control/VBoxContainer/Color_Button/ColorPicker" to="." method="_on_color_picker_color_changed"]
@@ -88,3 +93,4 @@ text = "Quit"
 [connection signal="pressed" from="Control/VBoxContainer/Squiggle_Button" to="." method="_on_squiggle_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Return_Button" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -2,10 +2,44 @@
 
 [ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_75quu"]
 [ext_resource type="Texture2D" uid="uid://b0sauxki0h4el" path="res://assets/sprites/critters/fish_critter.png" id="2_8cwys"]
+[ext_resource type="Script" uid="uid://fi3m7xyt7re7" path="res://scripts/enemies/fish_enemy.gd" id="2_wshrx"]
 
 [node name="fish_enemy" unique_id=481933772 instance=ExtResource("1_75quu")]
+script = ExtResource("2_wshrx")
+dash_speed = 700.0
+dash_duration = 0.2
+wind_up_time = 0.8
+rest_time = 0.8
+slide_deceleration = 700.0
+slide_min_speed = 30.0
+wet_trail_color = Color(0.2, 0.3, 0.5, 0.4)
+wet_trail_width = 70.0
+wet_trail_fade_duration = 2.5
+wet_trail_sample_distance = 8.0
+contact_damage = 1.0
 
 [node name="Enemy_Sprite" type="Sprite2D" parent="." index="4" unique_id=198997329]
 position = Vector2(1.9073486e-06, -3.8146973e-06)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_8cwys")
+
+[node name="Splash_Particles" type="CPUParticles2D" parent="." index="5" unique_id=555444333]
+z_index = -1
+amount = 40
+lifetime = 0.5
+explosiveness = 0.2
+randomness = 0.4
+lifetime_randomness = 0.3
+emission_shape = 1
+emission_sphere_radius = 30.0
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 80.0
+initial_velocity_max = 200.0
+damping_min = 200.0
+damping_max = 400.0
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+color = Color(0.5, 0.8, 1, 0.9)

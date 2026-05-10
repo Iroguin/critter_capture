@@ -112,7 +112,7 @@ func get_top_highscores(n: int = 10) -> Array:
 	return all.slice(0, n)
 
 
-func add_highscore(player: String, points: int, time: float) -> int:
+func add_highscore(player: String, points: int, time: float, color: Color = Color.WHITE) -> int:
 	var entries := get_all_highscores()
 	var date := int(Time.get_unix_time_from_system())
 	entries.append({
@@ -120,6 +120,7 @@ func add_highscore(player: String, points: int, time: float) -> int:
 		"points": points,
 		"time": time,
 		"date": date,
+		"color": color,
 	})
 	_config.set_value("highscores", "entries", entries)
 	_save()
@@ -140,13 +141,39 @@ func format_highscore_entry(entry: Dictionary) -> String:
 	]
 
 
+func _format_highscore_line(rank: int, entry: Dictionary, highlight: bool) -> String:
+	var inner := format_highscore_entry(entry)
+	if highlight:
+		return "%d. [color=yellow][b]%s[/b][/color]" % [rank, inner]
+	var color: Color = entry.get("color", Color.WHITE)
+	return "%d. [color=#%s]%s[/color]" % [rank, color.to_html(false), inner]
+
+
 func get_formatted_highscores(top_n: int = 10, highlight_date: int = -1) -> String:
-	var entries := get_top_highscores(top_n)
+	var all := get_all_highscores()
+	all.sort_custom(func(a, b): return int(a.points) > int(b.points))
+
+	if highlight_date == -1:
+		for e in all:
+			var d := int(e.get("date", 0))
+			if d > highlight_date:
+				highlight_date = d
+
 	var lines := PackedStringArray()
-	for i in entries.size():
-		var entry: Dictionary = entries[i]
-		var line := "%d. %s" % [i + 1, format_highscore_entry(entry)]
-		if int(entry.get("date", 0)) == highlight_date:
-			line = "[color=yellow][b]%s[/b][/color]" % line
-		lines.append(line)
+	var found_in_top := false
+	var top := all.slice(0, top_n)
+	for i in top.size():
+		var entry: Dictionary = top[i]
+		var is_highlight := int(entry.get("date", 0)) == highlight_date
+		if is_highlight:
+			found_in_top = true
+		lines.append(_format_highscore_line(i + 1, entry, is_highlight))
+
+	if not found_in_top and highlight_date != -1:
+		for i in all.size():
+			if int(all[i].get("date", 0)) == highlight_date:
+				lines.append("...")
+				lines.append(_format_highscore_line(i + 1, all[i], true))
+				break
+
 	return "\n".join(lines)

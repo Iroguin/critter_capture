@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="critter_capture"
 run/main_scene="uid://c524ir8whb8hd"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://e02qdn3w63mn"
 
 [autoload]
 
@@ -36,6 +36,10 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="critter_capture"
+
+[gui]
+
+theme/custom_font="uid://c4y1p5j70ektk"
 
 [input]
 

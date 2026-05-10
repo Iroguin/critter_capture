@@ -13,7 +13,7 @@ seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_squig"]
 shader = ExtResource("1_squig")
-shader_parameter/scale = Vector2(10, 10)
+shader_parameter/scale = Vector2(3, 3)
 shader_parameter/strength = 0.1
 shader_parameter/fps = 6.0
 shader_parameter/noise = SubResource("NoiseTexture2D_squig")

@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/highscores_panel.gd" id="1_hsp"]
+
+[node name="Highscores_Panel" type="PanelContainer"]
+script = ExtResource("1_hsp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Highscores_Label" type="RichTextLabel" parent="MarginContainer"]
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24

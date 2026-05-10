@@ -2,9 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_qdse8"]
 [ext_resource type="Texture2D" uid="uid://bqw4hhgqgi3jw" path="res://assets/sprites/critters/toukka_critter.png" id="2_8rnt0"]
+[ext_resource type="Script" uid="uid://cp0n4kfijbeav" path="res://scripts/enemies/toukka_enemy.gd" id="2_hs2k7"]
 
 [node name="toukka_enemy" unique_id=481933772 instance=ExtResource("1_qdse8")]
+script = ExtResource("2_hs2k7")
+weave_frequency = 0.5
+weave_amplitude = 3.0
 contact_damage = 1.0
+move_speed = 80.0
 
 [node name="Enemy_Sprite" type="Sprite2D" parent="." index="4" unique_id=877748455]
 position = Vector2(-2, -16)

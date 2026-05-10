@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://c524ir8whb8hd"]
 
 [ext_resource type="Script" uid="uid://fbuxsdbha20a" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://c2j0tccdr1juj" path="res://assets/sprites/backgrounds/Critter_menu_BG_wip.png" id="2_ekxnf"]
+[ext_resource type="PackedScene" path="res://scenes/highscores_panel.tscn" id="3_hsp"]
 
 [node name="Main_menu" type="CanvasLayer" unique_id=40414047]
 script = ExtResource("1_l6cm7")
+
+[node name="CritterMenuBgWip" type="Sprite2D" parent="." unique_id=1028716413]
+position = Vector2(990, 540)
+texture = ExtResource("2_ekxnf")
 
 [node name="Control" type="Control" parent="." unique_id=1616037298]
 layout_mode = 3
@@ -28,32 +34,33 @@ theme_override_constants/margin_bottom = 200
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1189259419]
 layout_mode = 2
 size_flags_horizontal = 4
-alignment = 1
+alignment = 2
 
 [node name="Start_Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1323190418]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = " Start "
 
 [node name="High_Scores_Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=213417362]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "High Scores"
 
 [node name="Settings_Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1256151159]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Settings"
 
 [node name="Quit_Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=354179233]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = " Quit Game
 "
 
-[node name="High_Scores_Label" type="Label" parent="Control/MarginContainer" unique_id=1611491028]
+[node name="Highscores_Panel" parent="Control/MarginContainer" instance=ExtResource("3_hsp")]
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 8
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/High_Scores_Button" to="." method="_on_high_scores_button_pressed"]

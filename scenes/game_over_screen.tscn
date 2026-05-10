@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dol44bffegmq7"]
 
 [ext_resource type="Script" uid="uid://b4qgaw4qeq1b5" path="res://scripts/game_over_screen.gd" id="1_iwahs"]
+[ext_resource type="PackedScene" path="res://scenes/highscores_panel.tscn" id="2_hsp"]
 
 [node name="Game_Over_Screen" type="CanvasLayer" unique_id=1130014640]
 script = ExtResource("1_iwahs")
@@ -21,91 +22,87 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Control" unique_id=21185929]
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1730490190]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 522.0
-offset_top = 228.0
-offset_right = -614.0
-offset_bottom = -284.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
 
-[node name="Game_Over_Label" type="Label" parent="Control" unique_id=1862397355]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.28541666
-anchor_top = 0.19722222
-anchor_right = 0.7
-anchor_bottom = 0.33796296
-offset_right = 677.4166
-offset_bottom = 169.37036
-grow_horizontal = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1250279289]
+layout_mode = 2
+alignment = 2
+
+[node name="Game_Over_Panel" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer" unique_id=625170871]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Game_Over_Panel" unique_id=177131079]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer" unique_id=620038261]
+custom_minimum_size = Vector2(338, 0)
+layout_mode = 2
+
+[node name="Game_Over_Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer" unique_id=1862397355]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 128
 text = "Game Over"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=620038261]
-custom_minimum_size = Vector2(338, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -169.0
-offset_top = -165.5
-offset_right = 169.0
-offset_bottom = 165.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Time_Label" type="Label" parent="Control/VBoxContainer" unique_id=1253558464]
+[node name="Time_Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer" unique_id=1253558464]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "Time:"
 
-[node name="Score_Label" type="Label" parent="Control/VBoxContainer" unique_id=1877864913]
+[node name="Score_Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer" unique_id=1877864913]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "Score:"
 
-[node name="LineEdit" type="LineEdit" parent="Control/VBoxContainer" unique_id=954339861]
+[node name="LineEdit" type="LineEdit" parent="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer" unique_id=954339861]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 placeholder_text = "Enter Name: "
 expand_to_text_length = true
 
-[node name="Submit_Button" type="Button" parent="Control/VBoxContainer" unique_id=167962103]
+[node name="Submit_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer" unique_id=167962103]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Submit"
 
-[node name="Restart_Button" type="Button" parent="Control/VBoxContainer" unique_id=1916184161]
+[node name="Restart_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer" unique_id=1916184161]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Restart"
 
-[node name="Return_Button" type="Button" parent="Control/VBoxContainer" unique_id=2026327706]
+[node name="Return_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer" unique_id=2026327706]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Return to Main Menu"
 
-[node name="Highscores_Label" type="Label" parent="Control" unique_id=1636046341]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -630.0
-offset_top = -293.0
-offset_bottom = 300.0
-grow_horizontal = 0
-grow_vertical = 2
+[node name="Highscores_Panel" parent="Control/MarginContainer/HBoxContainer" unique_id=498293627 instance=ExtResource("2_hsp")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
-[connection signal="text_submitted" from="Control/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="Control/VBoxContainer/Submit_Button" to="." method="_on_submit_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Restart_Button" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Return_Button" to="." method="_on_return_button_pressed"]
+[connection signal="text_submitted" from="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer/Submit_Button" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer/Restart_Button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Game_Over_Panel/MarginContainer/VBoxContainer/Return_Button" to="." method="_on_return_button_pressed"]

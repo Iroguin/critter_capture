@@ -25,14 +25,39 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Time_Label" type="Label" parent="Control/MarginContainer" unique_id=87029888]
+[node name="Time_Panel" type="PanelContainer" parent="Control/MarginContainer" unique_id=1708939442]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/Time_Panel" unique_id=1896846718]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="Time_Label" type="Label" parent="Control/MarginContainer/Time_Panel/MarginContainer" unique_id=87029888]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 48
+text = "00:00"
 horizontal_alignment = 2
 
-[node name="highscore_label" type="Label" parent="Control/MarginContainer" unique_id=1259040760]
+[node name="Score_Panel" type="PanelContainer" parent="Control/MarginContainer" unique_id=257615052]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/Score_Panel" unique_id=571609425]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="highscore_label" type="Label" parent="Control/MarginContainer/Score_Panel/MarginContainer" unique_id=1259040760]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 48

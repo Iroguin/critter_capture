@@ -4,7 +4,7 @@ class_name Enemy
 @export var contact_damage : float
 @export var max_health : float
 @export var move_speed : float
-@export var use_trail_opposite_color: bool = true
+@export var use_sprite_average_color: bool = true
 @export var death_color_override: Color = Color(1, 1, 1, 1)
 # the sprite must always be called Enemy_Sprite
 @onready var sprite: Sprite2D = $Enemy_Sprite
@@ -46,20 +46,28 @@ func _spawn_death_explosion() -> void:
 
 
 func resolve_death_color() -> Color:
-	if not use_trail_opposite_color:
+	if not use_sprite_average_color:
 		return death_color_override
-	var trail_color := _get_player_trail_color()
-	return Color(1.0 - trail_color.r, 1.0 - trail_color.g, 1.0 - trail_color.b, 1.0)
+	return _get_average_color(sprite)
 
+func _get_average_color(sprite: Sprite2D) -> Color:
+	var img = sprite.texture.get_image()
+	var r_total = 0.0
+	var g_total = 0.0
+	var b_total = 0.0
+	var count = 0
 
-func _get_player_trail_color() -> Color:
-	var player := get_tree().get_first_node_in_group("player") as Node2D
-	if not player:
-		return death_color_override
-	var trail := player.get_node_or_null("PlayerTrail") as Line2D
-	if not trail:
-		return death_color_override
-	return trail.default_color
+	for y in range(img.get_height()):
+		for x in range(img.get_width()):
+			var pixel = img.get_pixel(x, y)
+			if pixel.a > 0.1:
+				r_total += pixel.r
+				g_total += pixel.g
+				b_total += pixel.b
+				count += 1
+
+	if count == 0: return Color.WHITE
+	return Color(r_total / count, g_total / count, b_total / count)
 
 func start_sway_animation():
 	var tween = create_tween().set_loops()
