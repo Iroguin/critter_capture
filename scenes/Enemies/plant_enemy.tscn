@@ -2,15 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_i3jc4"]
 [ext_resource type="Script" uid="uid://dpqq0wqm2u2c1" path="res://scripts/enemies/plant_enemy.gd" id="2_3mu13"]
-[ext_resource type="Texture2D" uid="uid://e02qdn3w63mn" path="res://assets/sprites/critters/critter_sprite_test.png" id="2_flds2"]
+[ext_resource type="Texture2D" uid="uid://e02qdn3w63mn" path="res://assets/sprites/critters/flower/critter_sprite_test.png" id="2_flds2"]
+[ext_resource type="Texture2D" uid="uid://baeatllcmja12" path="res://assets/sprites/critters/flower/kukka0.png" id="3_q754v"]
+[ext_resource type="Texture2D" uid="uid://c1bc7qsms3tj0" path="res://assets/sprites/critters/flower/kukka1.png" id="4_cojce"]
+[ext_resource type="Texture2D" uid="uid://dkafty42eop1u" path="res://assets/sprites/critters/flower/kukka2.png" id="5_uutvt"]
 
 [node name="plant_enemy" unique_id=481933772 instance=ExtResource("1_i3jc4")]
 script = ExtResource("2_3mu13")
 direction_spread_degrees = 30.0
 contact_damage = 1.0
 move_speed = 60.0
+idle_frames = Array[Texture2D]([ExtResource("3_q754v"), ExtResource("4_cojce"), ExtResource("5_uutvt")])
 
-[node name="Enemy_Sprite" type="Sprite2D" parent="." index="4" unique_id=1232621891]
+[node name="Enemy_Sprite" type="Sprite2D" parent="." index="3" unique_id=1232621891]
 position = Vector2(-4.9999995, -1.0000005)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_flds2")

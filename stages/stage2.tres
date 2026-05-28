@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_vn578")
-time_threshold = 30.0
-spawn_interval = 2.5
+time_threshold = 50.0
+spawn_interval = 3.6
 enemy_scenes = Array[PackedScene]([ExtResource("1_livgr"), ExtResource("2_c0kap"), ExtResource("3_txku1")])
-enemy_weights = Array[float]([1.0, 0.5, 1.0])
+enemy_weights = Array[float]([1.0, 0.7, 0.8])

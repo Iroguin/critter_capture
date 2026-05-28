@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6dbwplu5fjlk"]
 
-[ext_resource type="Script" uid="uid://dtprmhinmy6o5" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="Script" uid="uid://dtprmhinmy6o5" path="res://scripts/menus/pause_menu.gd" id="1_n87rw"]
 
 [node name="Pause_Menu" type="CanvasLayer" unique_id=1157981104]
 process_mode = 3
@@ -55,10 +55,10 @@ anchor_left = 1.7440001
 anchor_top = 0.33
 anchor_right = 1.7440001
 anchor_bottom = 0.33
-offset_left = -150.05203
-offset_top = -316.99
-offset_right = 149.94797
-offset_bottom = 317.01
+offset_left = -151.31998
+offset_top = -258.01
+offset_right = 148.68
+offset_bottom = 375.99
 
 [node name="Background_Button" type="Button" parent="Control/VBoxContainer" unique_id=1713509074]
 layout_mode = 2
@@ -71,6 +71,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Toggle Squiggle"
 
+[node name="HSeparator" type="HSeparator" parent="Control/VBoxContainer" unique_id=1002567303]
+layout_mode = 2
+theme_override_constants/separation = 10
+
 [node name="Return_Button" type="Button" parent="Control/VBoxContainer" unique_id=197644009]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -81,7 +85,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
-[node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=1982335146]
+[node name="HSeparator2" type="HSeparator" parent="Control/VBoxContainer" unique_id=1838446017]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Continue_Button" type="Button" parent="Control/VBoxContainer" unique_id=1982335146]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Continue"
@@ -93,4 +101,4 @@ text = "Continue"
 [connection signal="pressed" from="Control/VBoxContainer/Squiggle_Button" to="." method="_on_squiggle_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Return_Button" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Continue_Button" to="." method="_on_button_pressed"]

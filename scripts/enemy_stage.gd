@@ -5,3 +5,4 @@ class_name EnemyStage
 @export var spawn_interval: float = 1.5
 @export var enemy_scenes: Array[PackedScene] = []
 @export var enemy_weights: Array[float] = []
+@export var boss_stage: bool

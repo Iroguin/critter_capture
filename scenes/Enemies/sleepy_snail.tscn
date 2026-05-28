@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bwpgrofkpc2xk"]
+
+[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_npsxj"]
+[ext_resource type="Script" uid="uid://b7p7p4q2w1hpu" path="res://scripts/enemies/sleepy_snail.gd" id="2_e2xav"]
+[ext_resource type="Texture2D" uid="uid://cxf811o6egryt" path="res://assets/sprites/critters/sleepy_snail/sleepy_snail_frame1.png" id="3_b6idx"]
+[ext_resource type="Texture2D" uid="uid://govty81t7ul4" path="res://assets/sprites/critters/sleepy_snail/sleepy_snail_frame2.png" id="4_0q2mc"]
+[ext_resource type="Texture2D" uid="uid://ba6fp8rpa73hu" path="res://assets/sprites/critters/sleepy_snail/sleepy_snail_frame3.png" id="5_hu3ba"]
+
+[node name="sleepy_snail" unique_id=481933772 instance=ExtResource("1_npsxj")]
+script = ExtResource("2_e2xav")
+idle_frames = Array[Texture2D]([ExtResource("3_b6idx"), ExtResource("4_0q2mc"), ExtResource("5_hu3ba")])
+
+[node name="Enemy_Sprite" type="Sprite2D" parent="." index="3" unique_id=1686108869]
+position = Vector2(0, -10)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_b6idx")

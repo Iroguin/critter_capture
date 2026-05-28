@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cwjyprsibt232"]
+
+[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_1h2a0"]
+[ext_resource type="Script" uid="uid://ge64atjiybov" path="res://scripts/enemies/ants_enemy.gd" id="2_pb3eq"]
+[ext_resource type="Texture2D" uid="uid://bnfwrt5y2wpmj" path="res://assets/sprites/critters/ants/ants_frame1.png" id="3_7jpts"]
+[ext_resource type="Texture2D" uid="uid://cwc5wy4kvfgjw" path="res://assets/sprites/critters/ants/ants_frame2.png" id="4_ffxj5"]
+[ext_resource type="Texture2D" uid="uid://c8rxxmg4ud2m4" path="res://assets/sprites/critters/ants/ants_frame3.png" id="5_8cn65"]
+[ext_resource type="Texture2D" uid="uid://hkjie5mit7o7" path="res://assets/sprites/critters/ants/ants_frame4.png" id="6_3f8ia"]
+
+[node name="ants_enemy" unique_id=481933772 instance=ExtResource("1_1h2a0")]
+script = ExtResource("2_pb3eq")
+idle_frames = Array[Texture2D]([ExtResource("3_7jpts"), ExtResource("4_ffxj5"), ExtResource("5_8cn65"), ExtResource("6_3f8ia")])
+
+[node name="Enemy_Sprite" type="Sprite2D" parent="." index="3" unique_id=408260300]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_7jpts")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStage" format=3 uid="uid://cwgrrh4kf2a82"]
+
+[ext_resource type="Script" uid="uid://bl1g5hdbjohs1" path="res://scripts/enemy_stage.gd" id="1_761md"]
+[ext_resource type="PackedScene" uid="uid://b4t4xnakw5ma2" path="res://scenes/Enemies/fish_enemy.tscn" id="1_rubks"]
+
+[resource]
+script = ExtResource("1_761md")
+time_threshold = 120.0
+spawn_interval = 0.0
+enemy_scenes = Array[PackedScene]([ExtResource("1_rubks")])
+enemy_weights = Array[float]([1.0])
+boss_stage = true
+metadata/_custom_type_script = "uid://bl1g5hdbjohs1"

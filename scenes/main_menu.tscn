@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c524ir8whb8hd"]
 
-[ext_resource type="Script" uid="uid://fbuxsdbha20a" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://fbuxsdbha20a" path="res://scripts/menus/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://c2j0tccdr1juj" path="res://assets/sprites/backgrounds/Critter_menu_BG_wip.png" id="2_ekxnf"]
 [ext_resource type="PackedScene" path="res://scenes/highscores_panel.tscn" id="3_hsp"]
 
@@ -46,6 +46,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "High Scores"
 
+[node name="Appearance_Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=2007271134]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " Edit Character "
+
 [node name="Settings_Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1256151159]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
@@ -57,12 +62,13 @@ theme_override_font_sizes/font_size = 48
 text = " Quit Game
 "
 
-[node name="Highscores_Panel" parent="Control/MarginContainer" instance=ExtResource("3_hsp")]
+[node name="Highscores_Panel" parent="Control/MarginContainer" unique_id=575546512 instance=ExtResource("3_hsp")]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/High_Scores_Button" to="." method="_on_high_scores_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Appearance_Button" to="." method="_on_appearance_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Settings_Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

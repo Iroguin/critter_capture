@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://l0g1yl2kdb4i"]
 
-[ext_resource type="Script" uid="uid://c1hwegxc4bjab" path="res://scripts/settings_menu.gd" id="1_05p07"]
+[ext_resource type="Script" uid="uid://c1hwegxc4bjab" path="res://scripts/menus/settings_menu.gd" id="1_05p07"]
 [ext_resource type="Script" uid="uid://1leioe262bq4" path="res://scripts/volume_slider.gd" id="2_cr101"]
 
 [node name="settings_menu" type="CanvasLayer" unique_id=1707542584]
@@ -48,11 +48,15 @@ text = "Back"
 
 [node name="Return_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Default_Options" unique_id=715401349]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../Video_Controls/Resolution_Panel/MarginContainer/VBoxContainer/Resoltion_Options")
+focus_neighbor_right = NodePath("../../Volume_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer/Volume_Slider")
 theme_override_font_sizes/font_size = 32
 text = "Return to Main Menu"
 
 [node name="Quit_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Default_Options" unique_id=738573112]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../Video_Controls/Resolution_Panel/MarginContainer/VBoxContainer/Resoltion_Options")
+focus_neighbor_right = NodePath("../../Volume_Controls/UI_Volume_Panel/MarginContainer/VBoxContainer/Volume_Slider")
 theme_override_font_sizes/font_size = 32
 text = " Quit 
 "
@@ -79,45 +83,46 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Master_Volume_Panel/MarginContainer" unique_id=421116768]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Master_Volume_Panel/MarginContainer" unique_id=421116768]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer3" unique_id=1867020837]
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer" unique_id=1867020837]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Master Volume"
 
-[node name="Volume_Slider" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer3" unique_id=1026728368]
+[node name="Volume_Slider" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer" unique_id=1026728368]
 layout_mode = 2
 size_flags_vertical = 8
+focus_neighbor_top = NodePath("../../../../../Default_Options/Return_Button")
 max_value = 1.0
 step = 0.001
 script = ExtResource("2_cr101")
 bus_name = "Master"
 
-[node name="UI_Volume_Panel3" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls" unique_id=1989626267]
+[node name="UI_Volume_Panel" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls" unique_id=1989626267]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel3" unique_id=107018613]
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel" unique_id=107018613]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel3/MarginContainer" unique_id=1327204783]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel/MarginContainer" unique_id=1327204783]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel3/MarginContainer/VBoxContainer3" unique_id=1004344603]
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel/MarginContainer/VBoxContainer" unique_id=1004344603]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "UI Volume"
 
-[node name="Volume_Slider" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel3/MarginContainer/VBoxContainer3" unique_id=382484726]
+[node name="Volume_Slider" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/UI_Volume_Panel/MarginContainer/VBoxContainer" unique_id=382484726]
 layout_mode = 2
 size_flags_vertical = 8
 max_value = 1.0
@@ -125,33 +130,62 @@ step = 0.001
 script = ExtResource("2_cr101")
 bus_name = "UI"
 
-[node name="SFX_Volume_Panel2" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls" unique_id=2067392093]
+[node name="SFX_Volume_Panel" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls" unique_id=2067392093]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel2" unique_id=2055365996]
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel" unique_id=2055365996]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel2/MarginContainer" unique_id=1411094287]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel/MarginContainer" unique_id=1411094287]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel2/MarginContainer/VBoxContainer3" unique_id=2063526120]
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel/MarginContainer/VBoxContainer" unique_id=2063526120]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "SFX Volume"
 
-[node name="Volume_Slider" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel2/MarginContainer/VBoxContainer3" unique_id=1857918025]
+[node name="Volume_Slider" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/SFX_Volume_Panel/MarginContainer/VBoxContainer" unique_id=1857918025]
 layout_mode = 2
 size_flags_vertical = 8
 max_value = 1.0
 step = 0.001
 script = ExtResource("2_cr101")
 bus_name = "SFX"
+
+[node name="Music_Volume_Panel" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls" unique_id=1990560538]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Music_Volume_Panel" unique_id=635356134]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Music_Volume_Panel/MarginContainer" unique_id=171606898]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Music_Volume_Panel/MarginContainer/VBoxContainer" unique_id=999432882]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Music Volume"
+
+[node name="Volume_Slider" type="HSlider" parent="Control/MarginContainer/HBoxContainer/Volume_Controls/Music_Volume_Panel/MarginContainer/VBoxContainer" unique_id=398218154]
+layout_mode = 2
+size_flags_vertical = 8
+focus_neighbor_bottom = NodePath("../../../../../Video_Controls/Resolution_Panel/MarginContainer/VBoxContainer/Resoltion_Options")
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_cr101")
+bus_name = "Music"
 
 [node name="VSeparator2" type="VSeparator" parent="Control/MarginContainer/HBoxContainer" unique_id=204253221]
 layout_mode = 2
@@ -165,39 +199,43 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Video Controls"
 
-[node name="Master_Volume_Panel" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Video_Controls" unique_id=683531947]
+[node name="Resolution_Panel" type="PanelContainer" parent="Control/MarginContainer/HBoxContainer/Video_Controls" unique_id=683531947]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Master_Volume_Panel" unique_id=935527052]
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Resolution_Panel" unique_id=935527052]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Master_Volume_Panel/MarginContainer" unique_id=1212003865]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Resolution_Panel/MarginContainer" unique_id=1212003865]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer3" unique_id=1558991159]
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Resolution_Panel/MarginContainer/VBoxContainer" unique_id=1558991159]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Resolution"
 
-[node name="Resoltion_Options" type="OptionButton" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Master_Volume_Panel/MarginContainer/VBoxContainer3" unique_id=780487903]
+[node name="Resoltion_Options" type="OptionButton" parent="Control/MarginContainer/HBoxContainer/Video_Controls/Resolution_Panel/MarginContainer/VBoxContainer" unique_id=780487903]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 8
+focus_neighbor_right = NodePath("../../../../../Default_Options/Return_Button")
+focus_neighbor_bottom = NodePath("../../../../Fullscreen_Button")
 theme_override_font_sizes/font_size = 32
 
 [node name="Fullscreen_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Video_Controls" unique_id=1033019929]
 layout_mode = 2
+focus_neighbor_right = NodePath("../../Default_Options/Return_Button")
 theme_override_font_sizes/font_size = 32
 text = "Fullscreen"
 
 [node name="Squiggle_Button" type="Button" parent="Control/MarginContainer/HBoxContainer/Video_Controls" unique_id=719265641]
 layout_mode = 2
+focus_neighbor_right = NodePath("../../Default_Options/Return_Button")
 theme_override_font_sizes/font_size = 32
 text = "Toggle Squiggle Overlay: ON"
 

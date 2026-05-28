@@ -12,6 +12,11 @@
 [ext_resource type="Resource" uid="uid://b4686hrfd7yvd" path="res://stages/stage3.tres" id="6_vnsdt"]
 [ext_resource type="Texture2D" uid="uid://bhid8kq62kn8i" path="res://assets/sprites/backgrounds/Critter_BG_doodles.png" id="6_wi4c7"]
 [ext_resource type="PackedScene" uid="uid://cxxoxc5uh6i26" path="res://scenes/main_ui.tscn" id="6_ygxny"]
+[ext_resource type="Resource" uid="uid://cwgrrh4kf2a82" path="res://stages/boss_stage1.tres" id="7_sp04v"]
+[ext_resource type="Resource" uid="uid://cehpi2cb3t24v" path="res://stages/stage4.tres" id="9_stg4"]
+[ext_resource type="Resource" uid="uid://b5dq3kvznz015" path="res://stages/stage5.tres" id="9_stg5"]
+[ext_resource type="Resource" uid="uid://c6flwrtu5dtkn" path="res://stages/stage6.tres" id="9_stg6"]
+[ext_resource type="Resource" uid="uid://cflwrbosbst02" path="res://stages/boss_stage2.tres" id="9_bs2"]
 [ext_resource type="Texture2D" uid="uid://ce2072cmg5l58" path="res://assets/sprites/backgrounds/Critter_BG_flowers.png" id="8_2l77h"]
 [ext_resource type="PackedScene" uid="uid://dol44bffegmq7" path="res://scenes/game_over_screen.tscn" id="8_70vka"]
 
@@ -21,9 +26,15 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve2D" id="Curve2D_sp04v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 100, 100, 0, 0, 0, 0, 1870, 100, 0, 0, 0, 0, 1870, 1030, 0, 0, 0, 0, 100, 1030, 0, 0, 0, 0, 100, 100)
+}
+point_count = 5
+
 [node name="Main_Game" type="Node2D" unique_id=744680119]
 script = ExtResource("1_wi4c7")
-stages = Array[ExtResource("2_o6v7o")]([ExtResource("3_8xp80"), ExtResource("4_sp04v"), ExtResource("5_ihbck"), ExtResource("6_vnsdt")])
+stages = Array[ExtResource("2_o6v7o")]([ExtResource("7_sp04v"), ExtResource("9_bs2"), ExtResource("3_8xp80"), ExtResource("4_sp04v"), ExtResource("5_ihbck"), ExtResource("6_vnsdt"), ExtResource("9_stg4"), ExtResource("9_stg5"), ExtResource("9_stg6")])
 
 [node name="Backgrounds" type="Node" parent="." unique_id=1945397297]
 
@@ -63,6 +74,9 @@ position = Vector2(910, 540)
 
 [node name="Enemy_Spawn_Path" type="Path2D" parent="." unique_id=16231133]
 curve = SubResource("Curve2D_70vka")
+
+[node name="Enemy_Alert_Path" type="Path2D" parent="." unique_id=1684122270]
+curve = SubResource("Curve2D_sp04v")
 
 [node name="Game_Over_Screen" parent="." unique_id=1130014640 instance=ExtResource("8_70vka")]
 visible = false

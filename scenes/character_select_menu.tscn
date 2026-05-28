@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://b7ikerda44ug5"]
+
+[ext_resource type="Script" uid="uid://c5d1pbbyxq323" path="res://scripts/menus/character_select_menu.gd" id="1_k1smn"]
+[ext_resource type="PackedScene" uid="uid://be3fcm8xy7d0s" path="res://scenes/main_character.tscn" id="2_2copr"]
+[ext_resource type="Texture2D" uid="uid://bqmw0wwg7k8ki" path="res://assets/sprites/backgrounds/Critter_BG_empty.png" id="2_q3yjc"]
+[ext_resource type="PackedScene" uid="uid://bav0bclnyjnsq" path="res://scenes/menus/custom_color_picker.tscn" id="4_ccp"]
+
+[node name="character_select_menu" type="CanvasLayer" unique_id=676141493]
+script = ExtResource("1_k1smn")
+
+[node name="CritterBgEmpty" type="Sprite2D" parent="." unique_id=1319403612]
+position = Vector2(931, 538)
+texture = ExtResource("2_q3yjc")
+
+[node name="Control" type="Control" parent="." unique_id=1647540154]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1766118140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=266106780]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=391761905]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Outfit_Left_Button" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2017133139]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Outfit_Right_button")
+focus_neighbor_bottom = NodePath("../../PanelContainer/ColorPicker")
+theme_override_font_sizes/font_size = 32
+text = "Prev"
+
+[node name="Character_view" type="SubViewportContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1135476613]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/Character_view" unique_id=2009220305]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Main_Character" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/Character_view/SubViewport" unique_id=1590444253 instance=ExtResource("2_2copr")]
+position = Vector2(269, 308)
+
+[node name="Trail_Example" type="Line2D" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/Character_view/SubViewport" unique_id=840462069]
+points = PackedVector2Array(269, 308.5, 280, 316.5, 294, 320.5, 310, 317.5, 325, 317.5, 343, 317.5, 356, 322.5, 365, 330.5, 367, 339.5, 364, 351.5, 359, 361.5, 347, 368.5, 331, 370.5, 281, 371.5, 246, 366.5, 232, 365.5, 212, 358.5, 197, 348.5, 181, 342.5, 171, 343.5, 162, 347.5, 157, 353.5, 157, 361.5, 160, 371.5, 169, 384.5, 184, 397.5, 199, 407.5, 215, 417.5, 228, 422.5, 238, 427.5, 253, 431.5, 275, 435.5, 297, 437.5, 319, 436.5, 338, 433.5, 352, 422.5)
+width = 6.0
+
+[node name="Outfit_Right_button" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1472615879]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Outfit_Left_Button")
+focus_neighbor_bottom = NodePath("../../PanelContainer/ColorPicker")
+theme_override_font_sizes/font_size = 32
+text = "Next
+"
+
+[node name="Player_Switch_Button" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer" unique_id=56519657]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "Switch Player"
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1521919004]
+layout_mode = 2
+
+[node name="ColorPicker" parent="Control/MarginContainer/VBoxContainer/PanelContainer" unique_id=1531889840 instance=ExtResource("4_ccp")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../HBoxContainer/Outfit_Left_Button")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1593973189]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Cancle_Button" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1838515358]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cancel
+"
+
+[node name="Reset_Button" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1984154200]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Reset"
+
+[node name="Confirm_Button" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2015712664]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Confirm
+"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/Outfit_Left_Button" to="." method="_on_outfit_left_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/Outfit_Right_button" to="." method="_on_outfit_right_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/Player_Switch_Button" to="." method="_on_player_switch_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/Cancle_Button" to="." method="_on_cancle_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/Reset_Button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/Confirm_Button" to="." method="_on_confirm_button_pressed"]

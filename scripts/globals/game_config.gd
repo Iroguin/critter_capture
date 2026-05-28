@@ -1,10 +1,13 @@
 extends Node
 
 const CONFIG_PATH := "user://config.cfg"
-const AUDIO_BUSES: Array[String] = ["Master", "UI", "SFX"]
+const AUDIO_BUSES: Array[String] = ["Master", "UI", "SFX", "Music"]
 const DEFAULT_RESOLUTION := Vector2i(1920, 1080)
 const DEFAULT_MOVEMENT_MODE := "WASD"
 const DEFAULT_PLAYER_NAME := "Player"
+const DEFAULT_TRAIL_COLOR := Color(0.48452926, 0.9063318, 1, 1)
+const DEFAULT_HAT := ""
+const DEFAULT_PLAYER_SPRITE := "res://assets/sprites/critters/player_test.png"
 
 var _config := ConfigFile.new()
 
@@ -97,6 +100,33 @@ func get_player_name() -> String:
 
 func set_player_name(value: String) -> void:
 	_config.set_value("gameplay", "player_name", value)
+	_save()
+
+
+func get_trail_color() -> Color:
+	return _config.get_value("gameplay", "trail_color", DEFAULT_TRAIL_COLOR)
+
+
+func set_trail_color(value: Color) -> void:
+	_config.set_value("gameplay", "trail_color", value)
+	_save()
+
+
+func get_hat() -> String:
+	return _config.get_value("gameplay", "hat", DEFAULT_HAT)
+
+
+func set_hat(value: String) -> void:
+	_config.set_value("gameplay", "hat", value)
+	_save()
+
+
+func get_player_sprite() -> String:
+	return _config.get_value("gameplay", "player_sprite", DEFAULT_PLAYER_SPRITE)
+
+
+func set_player_sprite(value: String) -> void:
+	_config.set_value("gameplay", "player_sprite", value)
 	_save()
 
 

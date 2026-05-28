@@ -61,6 +61,11 @@ func _physics_process(delta: float) -> void:
 func _enter_state(new_state: int) -> void:
 	_state = new_state
 	_state_time = 0.0
+	if special_sprites.has("windup"):
+		if new_state == State.WIND_UP:
+			play_special("windup")
+		else:
+			return_to_idle()
 	if splash_particles:
 		splash_particles.emitting = (new_state == State.SLIDE)
 	if new_state == State.SLIDE:
@@ -118,9 +123,9 @@ func _shrink_trail_back(trail: Line2D, t: float) -> void:
 	trail.gradient.set_offset(0, t)
 
 
-func die() -> void:
+func die(multiplier: int = 1) -> void:
 	_end_wet_trail()
-	super()
+	super(multiplier)
 
 
 func _direction_to_player() -> Vector2:

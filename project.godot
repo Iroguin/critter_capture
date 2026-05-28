@@ -19,13 +19,18 @@ run/main_scene="uid://c524ir8whb8hd"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://e02qdn3w63mn"
 
+[audio]
+
+buses/default_bus_layout="uid://b50i4vo4jqnrr"
+
 [autoload]
 
 SignalHandler="*uid://cwvi8p1j4h30b"
-AuidioHandler="*uid://cvg77xu4t335t"
+AudioHandler="*uid://cvg77xu4t335t"
 GameConfig="*res://scripts/globals/game_config.gd"
 GameStateHandler="*uid://ob23k1053eco"
 SquiggleOverlay="*res://scenes/squiggle_overlay.tscn"
+CursorHandler="*res://scripts/globals/cursor_handler.gd"
 
 [display]
 

@@ -15,7 +15,8 @@ var _exploded: bool = false
 func _ready() -> void:
 	top_level = true
 	width = trail_width
-	default_color = trail_color
+	trail_color = GameConfig.get_trail_color()
+	_on_trail_color_changed(trail_color)
 	SignalHandler.trail_color_changed.connect(_on_trail_color_changed)
 
 
@@ -62,7 +63,23 @@ func _sample(pos: Vector2) -> void:
 	if _trail.is_empty() or _trail.back().distance_to(pos) >= min_sample_distance:
 		_trail.append(pos)
 		if _trail.size() > max_points:
-			_trail.pop_front()
+			var popped: Vector2 = _trail.pop_front()
+			_spawn_fade_particle(popped)
+
+
+func _spawn_fade_particle(pos: Vector2) -> void:
+	var template := get_parent().get_node_or_null("PlayerTrailLoopParticles") as CPUParticles2D
+	if template == null:
+		return
+	var scene_root := get_tree().current_scene
+	if scene_root == null:
+		return
+	var p := template.duplicate() as CPUParticles2D
+	p.lifetime = 1
+	scene_root.add_child(p)
+	p.global_position = pos
+	p.emitting = true
+	get_tree().create_timer(p.lifetime + 0.5).timeout.connect(p.queue_free)
 
 
 func _redraw() -> void:

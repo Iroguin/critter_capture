@@ -1,13 +1,18 @@
 extends Node2D
 
 const FALLBACK_ENEMY_SCENE: PackedScene = preload("res://scenes/Enemies/rat_enemy.tscn")
+const WARNING_SCENE: PackedScene = preload("res://scenes/spawn_warning.tscn")
 const SPAWN_INTERVAL := 1.5
+# How long the warning sprite shows before the enemy appears at that spot.
+const WARNING_LEAD_TIME := 1.0
 
 @export var stages: Array[EnemyStage] = []
 
 @onready var enemy_spawn_path: Path2D = $Enemy_Spawn_Path
+@onready var enemy_alert_path: Path2D = $Enemy_Alert_Path
 
 var _spawn_timer: Timer
+var _spawned_boss_stages: Array[EnemyStage] = []
 var current_bg = 4
 
 func _ready() -> void:
@@ -20,6 +25,10 @@ func _ready() -> void:
 	add_child(_spawn_timer)
 	_spawn_timer.start()
 	SignalHandler.background_changed.connect(_on_background_changed)
+
+
+func _process(_delta: float) -> void:
+	_check_boss_spawns()
 
 # resizes the enmy spawn location, godot handles resolution changes so shouldnt need
 func _rebuild_spawn_path() -> void:
@@ -36,18 +45,48 @@ func _rebuild_spawn_path() -> void:
 func _spawn_enemy() -> void:
 	var stage := _current_stage()
 	var scene := _pick_enemy_scene(stage)
+	_spawn_at_random_path_point(scene)
+	_spawn_timer.wait_time = _current_stage_interval(stage)
 
+
+func _spawn_at_random_path_point(scene: PackedScene) -> void:
+	if scene == null:
+		return
+	var ratio := randf()
+	var warning := WARNING_SCENE.instantiate()
+	warning.global_position = _position_on_path(enemy_alert_path, ratio)
+	add_child(warning)
+	get_tree().create_timer(WARNING_LEAD_TIME).timeout.connect(
+		_spawn_enemy_at_ratio.bind(scene, ratio)
+	)
+
+
+func _spawn_enemy_at_ratio(scene: PackedScene, ratio: float) -> void:
+	if scene == null:
+		return
+	var enemy := scene.instantiate()
+	enemy.global_position = _position_on_path(enemy_spawn_path, ratio)
+	add_child(enemy)
+
+
+func _position_on_path(path: Path2D, ratio: float) -> Vector2:
 	var spawn_point := PathFollow2D.new()
 	spawn_point.loop = false
-	enemy_spawn_path.add_child(spawn_point)
-	spawn_point.progress_ratio = randf()
-
-	var enemy := scene.instantiate()
-	enemy.global_position = spawn_point.global_position
-	add_child(enemy)
+	path.add_child(spawn_point)
+	spawn_point.progress_ratio = ratio
+	var pos := spawn_point.global_position
 	spawn_point.queue_free()
+	return pos
 
-	_spawn_timer.wait_time = _current_stage_interval(stage)
+
+func _check_boss_spawns() -> void:
+	var t := GameStateHandler.get_time()
+	for stage in stages:
+		if stage == null or not stage.boss_stage:
+			continue
+		if stage.time_threshold <= t and not _spawned_boss_stages.has(stage):
+			_spawn_at_random_path_point(_pick_enemy_scene(stage))
+			_spawned_boss_stages.append(stage)
 
 
 func _current_stage(t: float = -1.0) -> EnemyStage:
@@ -55,7 +94,7 @@ func _current_stage(t: float = -1.0) -> EnemyStage:
 		t = GameStateHandler.get_time()
 	var current: EnemyStage = null
 	for stage in stages:
-		if stage == null:
+		if stage == null or stage.boss_stage:
 			continue
 		if stage.time_threshold <= t:
 			if current == null or stage.time_threshold > current.time_threshold:

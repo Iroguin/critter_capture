@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bqy01v84kejnq"]
+
+[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_ne8pe"]
+[ext_resource type="Script" uid="uid://641eocnsqd2g" path="res://scripts/enemies/omenamato_enemy.gd" id="2_6ekc4"]
+[ext_resource type="Texture2D" uid="uid://dn541jnguh7bg" path="res://assets/sprites/critters/omenamato/omenamato_critter.png" id="2_v6tod"]
+[ext_resource type="Texture2D" uid="uid://w1mhslunafpa" path="res://assets/sprites/critters/omenamato/omenamato_frame1.png" id="3_vajmo"]
+[ext_resource type="Texture2D" uid="uid://bfmeu0s6sksre" path="res://assets/sprites/critters/omenamato/omenamato_frame2.png" id="4_dsjlv"]
+[ext_resource type="Texture2D" uid="uid://ce6gt8amw2482" path="res://assets/sprites/critters/omenamato/omenamato_frame3.png" id="5_nu1t2"]
+[ext_resource type="Texture2D" uid="uid://c2shb0ltgx1l7" path="res://assets/sprites/critters/omenamato/omenamato_jump.png" id="6_jump"]
+
+[node name="omenamato_enemy" unique_id=481933772 instance=ExtResource("1_ne8pe")]
+script = ExtResource("2_6ekc4")
+hop_distance = 150.0
+hop_duration = 0.4
+idle_duration = 0.8
+hop_height = 30.0
+edge_margin = 100.0
+contact_damage = 1.0
+point_worth = 10
+idle_frames = Array[Texture2D]([ExtResource("3_vajmo"), ExtResource("4_dsjlv"), ExtResource("5_nu1t2")])
+special_sprites = {
+"jump": ExtResource("6_jump")
+}
+
+[node name="Enemy_Sprite" type="Sprite2D" parent="." index="3" unique_id=1853520104]
+position = Vector2(0, -1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_v6tod")

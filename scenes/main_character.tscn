@@ -45,3 +45,13 @@ texture = ExtResource("3_tqm6u")
 script = ExtResource("5_trail")
 trail_width = 6.0
 trail_color = Color(0.48452926, 0.9063318, 1, 1)
+
+[node name="Combo_Label" type="Label" parent="." unique_id=191062259]
+offset_right = 40.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 96
+
+[node name="Hat_Sprite" type="Sprite2D" parent="." unique_id=359686856]
+z_index = 1
+position = Vector2(-7.002127, -30.480736)
+scale = Vector2(0.3, 0.29969716)

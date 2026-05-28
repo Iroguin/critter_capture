@@ -2,19 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_a5qry"]
 [ext_resource type="Script" uid="uid://b4j7u7bi7tf8m" path="res://scripts/enemies/rat_enemy.gd" id="2_6cpra"]
-[ext_resource type="Texture2D" uid="uid://bxgb5dysbgh5v" path="res://assets/sprites/critters/rat_critter.png" id="3_oy73c"]
+[ext_resource type="Texture2D" uid="uid://bxgb5dysbgh5v" path="res://assets/sprites/critters/rat/rat_critter_old.png" id="3_oy73c"]
+[ext_resource type="Texture2D" uid="uid://ka0y8xrdogw5" path="res://assets/sprites/critters/rat/mouse0.png" id="3_vk0kj"]
+[ext_resource type="Texture2D" uid="uid://c8t4qbhqnfdvf" path="res://assets/sprites/critters/rat/mouse1.png" id="4_k0qiq"]
+[ext_resource type="Texture2D" uid="uid://ba6ec0igthn1" path="res://assets/sprites/critters/rat/mouse2.png" id="5_5j55p"]
 
 [node name="rat_enemy" unique_id=481933772 instance=ExtResource("1_a5qry")]
 script = ExtResource("2_6cpra")
 contact_damage = 1.0
 move_speed = 80.0
+point_worth = 3
+idle_frames = Array[Texture2D]([ExtResource("3_vk0kj"), ExtResource("4_k0qiq"), ExtResource("5_5j55p")])
+
+[node name="Enemy_Death_Particles" parent="." index="2" unique_id=731532511]
+emission_sphere_radius = 50.0
+scale_amount_min = 10.0
+scale_amount_max = 30.0
 
 [node name="Enemy_Sprite" type="Sprite2D" parent="." index="3" unique_id=1689010207]
 position = Vector2(-3.8146973e-06, -3.8146973e-06)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_oy73c")
-
-[node name="Enemy_Death_Particles" parent="." index="4" unique_id=731532511]
-emission_sphere_radius = 50.0
-scale_amount_min = 10.0
-scale_amount_max = 30.0

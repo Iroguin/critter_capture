@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyStage" format=3 uid="uid://cehpi2cb3t24v"]
+
+[ext_resource type="Script" uid="uid://bl1g5hdbjohs1" path="res://scripts/enemy_stage.gd" id="1_avy5p"]
+[ext_resource type="PackedScene" uid="uid://b4t4xnakw5ma2" path="res://scenes/Enemies/fish_enemy.tscn" id="1_c6usd"]
+[ext_resource type="PackedScene" uid="uid://bqy01v84kejnq" path="res://scenes/Enemies/omenamato_enemy.tscn" id="2_capcd"]
+[ext_resource type="PackedScene" uid="uid://y6dk4q0p6m60" path="res://scenes/Enemies/plant_enemy.tscn" id="3_xc0n0"]
+[ext_resource type="PackedScene" uid="uid://6gwgtyfnxkky" path="res://scenes/Enemies/rat_enemy.tscn" id="4_abgnv"]
+[ext_resource type="PackedScene" uid="uid://82mwsdxnt2yv" path="res://scenes/Enemies/toukka_enemy.tscn" id="5_7ck21"]
+
+[resource]
+script = ExtResource("1_avy5p")
+time_threshold = 180.0
+spawn_interval = 2.7
+enemy_scenes = Array[PackedScene]([ExtResource("1_c6usd"), ExtResource("2_capcd"), ExtResource("3_xc0n0"), ExtResource("4_abgnv"), ExtResource("5_7ck21")])
+enemy_weights = Array[float]([0.4, 0.5, 0.4, 0.8, 0.7])
+metadata/_custom_type_script = "uid://bl1g5hdbjohs1"

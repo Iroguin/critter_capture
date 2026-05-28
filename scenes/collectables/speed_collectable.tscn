@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ccdrkhewu1kgq"]
+
+[ext_resource type="PackedScene" uid="uid://dn5ayp4uy2rsb" path="res://scenes/collectables/collectable.tscn" id="1_6ni3l"]
+[ext_resource type="Script" uid="uid://bpfe8po4bx2mf" path="res://scripts/speed_collectable.gd" id="2_speed"]
+
+[node name="speed_collectable" unique_id=380024505 instance=ExtResource("1_6ni3l")]
+script = ExtResource("2_speed")
+speed_multiplier = 2.0
+duration = 8.0
+spin_speed = 1.0
+
+[node name="Triangle" type="Polygon2D" parent="." index="1" unique_id=461714430]
+z_index = 1
+color = Color(1, 0.85, 0.2, 1)
+polygon = PackedVector2Array(0, -20, -17.320507, 10, 17.320507, 10)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="2" unique_id=1066817544]
+amount = 10
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 50.0

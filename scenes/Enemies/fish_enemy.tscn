@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://b4t4xnakw5ma2"]
 
 [ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_75quu"]
-[ext_resource type="Texture2D" uid="uid://b0sauxki0h4el" path="res://assets/sprites/critters/fish_critter.png" id="2_8cwys"]
+[ext_resource type="Texture2D" uid="uid://b0sauxki0h4el" path="res://assets/sprites/critters/fish/fish_critter_old.png" id="2_8cwys"]
 [ext_resource type="Script" uid="uid://fi3m7xyt7re7" path="res://scripts/enemies/fish_enemy.gd" id="2_wshrx"]
+[ext_resource type="Texture2D" uid="uid://dnyf204fdlsin" path="res://assets/sprites/critters/fish/fish0.png" id="3_wshrx"]
+[ext_resource type="Texture2D" uid="uid://cv4dud2h5k4pt" path="res://assets/sprites/critters/fish/fish0.5.png" id="4_a0xpy"]
+[ext_resource type="Texture2D" uid="uid://df1etgfxqgwu3" path="res://assets/sprites/critters/fish/fish_windup.png" id="5_windup"]
 
 [node name="fish_enemy" unique_id=481933772 instance=ExtResource("1_75quu")]
 script = ExtResource("2_wshrx")
@@ -17,13 +20,18 @@ wet_trail_width = 70.0
 wet_trail_fade_duration = 2.5
 wet_trail_sample_distance = 8.0
 contact_damage = 1.0
+point_worth = 10
+idle_frames = Array[Texture2D]([ExtResource("3_wshrx"), ExtResource("4_a0xpy")])
+special_sprites = {
+"windup": ExtResource("5_windup")
+}
 
-[node name="Enemy_Sprite" type="Sprite2D" parent="." index="4" unique_id=198997329]
+[node name="Enemy_Sprite" type="Sprite2D" parent="." index="3" unique_id=198997329]
 position = Vector2(1.9073486e-06, -3.8146973e-06)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_8cwys")
 
-[node name="Splash_Particles" type="CPUParticles2D" parent="." index="5" unique_id=555444333]
+[node name="Splash_Particles" type="CPUParticles2D" parent="." index="4" unique_id=555444333]
 z_index = -1
 amount = 40
 lifetime = 0.5
