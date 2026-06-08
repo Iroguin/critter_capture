@@ -2,6 +2,12 @@
 .godot/
 /android/
 
+# Exported game builds (too large for git)
+*.exe
+*.dmg
+*.pck
+*.zip
+
 # General
 .DS_Store
 .localized
