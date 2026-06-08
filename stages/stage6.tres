@@ -6,12 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://y6dk4q0p6m60" path="res://scenes/Enemies/plant_enemy.tscn" id="4_plant"]
 [ext_resource type="PackedScene" uid="uid://6gwgtyfnxkky" path="res://scenes/Enemies/rat_enemy.tscn" id="5_rat"]
 [ext_resource type="PackedScene" uid="uid://82mwsdxnt2yv" path="res://scenes/Enemies/toukka_enemy.tscn" id="6_toukka"]
+[ext_resource type="PackedScene" uid="uid://co5g8me36rgoy" path="res://scenes/Enemies/butter_baby.tscn" id="7_b1gk6"]
 [ext_resource type="PackedScene" uid="uid://dc8i84k7w0cax" path="res://scenes/Enemies/blaster_flower_2000.tscn" id="7_flower"]
 
 [resource]
 script = ExtResource("1_script")
 time_threshold = 300.0
 spawn_interval = 2.2
-enemy_scenes = Array[PackedScene]([ExtResource("2_fish"), ExtResource("3_omen"), ExtResource("4_plant"), ExtResource("5_rat"), ExtResource("6_toukka"), ExtResource("7_flower")])
-enemy_weights = Array[float]([0.6, 0.7, 0.2, 0.6, 0.5, 0.4])
+enemy_scenes = Array[PackedScene]([ExtResource("2_fish"), ExtResource("3_omen"), ExtResource("4_plant"), ExtResource("5_rat"), ExtResource("6_toukka"), ExtResource("7_flower"), ExtResource("7_b1gk6")])
+enemy_weights = Array[float]([0.6, 0.7, 0.2, 0.6, 0.5, 0.4, 0.1])
 metadata/_custom_type_script = "uid://bl1g5hdbjohs1"

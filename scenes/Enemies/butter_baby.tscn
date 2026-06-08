@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://co5g8me36rgoy"]
+
+[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_3msqn"]
+[ext_resource type="Script" uid="uid://h6do70b86dsg" path="res://scripts/Enemies/butter_baby.gd" id="2_6dro8"]
+[ext_resource type="Texture2D" uid="uid://csxv0s5lkbrsf" path="res://assets/sprites/critters/butterbaby.png" id="2_n52ub"]
+
+[node name="butter_baby" unique_id=481933772 instance=ExtResource("1_3msqn")]
+script = ExtResource("2_6dro8")
+direction_spread_degrees = 30.0
+move_speed = 30.0
+
+[node name="Butterbaby" type="Sprite2D" parent="." index="3" unique_id=999947626]
+position = Vector2(0, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_n52ub")

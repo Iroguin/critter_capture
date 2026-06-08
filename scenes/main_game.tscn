@@ -13,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://bhid8kq62kn8i" path="res://assets/sprites/backgrounds/Critter_BG_doodles.png" id="6_wi4c7"]
 [ext_resource type="PackedScene" uid="uid://cxxoxc5uh6i26" path="res://scenes/main_ui.tscn" id="6_ygxny"]
 [ext_resource type="Resource" uid="uid://cwgrrh4kf2a82" path="res://stages/boss_stage1.tres" id="7_sp04v"]
-[ext_resource type="Resource" uid="uid://cehpi2cb3t24v" path="res://stages/stage4.tres" id="9_stg4"]
-[ext_resource type="Resource" uid="uid://b5dq3kvznz015" path="res://stages/stage5.tres" id="9_stg5"]
-[ext_resource type="Resource" uid="uid://c6flwrtu5dtkn" path="res://stages/stage6.tres" id="9_stg6"]
-[ext_resource type="Resource" uid="uid://cflwrbosbst02" path="res://stages/boss_stage2.tres" id="9_bs2"]
 [ext_resource type="Texture2D" uid="uid://ce2072cmg5l58" path="res://assets/sprites/backgrounds/Critter_BG_flowers.png" id="8_2l77h"]
 [ext_resource type="PackedScene" uid="uid://dol44bffegmq7" path="res://scenes/game_over_screen.tscn" id="8_70vka"]
+[ext_resource type="Resource" uid="uid://cflwrbosbst02" path="res://stages/boss_stage2.tres" id="9_bs2"]
+[ext_resource type="Resource" uid="uid://cehpi2cb3t24v" path="res://stages/stage4.tres" id="9_stg4"]
+[ext_resource type="Resource" uid="uid://b5dq3kv0n0015" path="res://stages/stage5.tres" id="9_stg5"]
+[ext_resource type="Resource" uid="uid://c6flwrtu5dtkn" path="res://stages/stage6.tres" id="9_stg6"]
 
 [sub_resource type="Curve2D" id="Curve2D_70vka"]
 _data = {
