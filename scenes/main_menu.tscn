@@ -105,7 +105,7 @@ offset_top = -33.0
 offset_right = 246.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Game by: Edward, Iiris, Milla, Aaro"
+text = "Game by: Edward, Iiris, Milla, Aaro, Takahiro"
 label_settings = SubResource("LabelSettings_wu84c")
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
