@@ -11,7 +11,7 @@
 script = ExtResource("2_6cpra")
 contact_damage = 1.0
 move_speed = 80.0
-point_worth = 3
+point_worth = 2
 idle_frames = Array[Texture2D]([ExtResource("3_vk0kj"), ExtResource("4_k0qiq"), ExtResource("5_5j55p")])
 
 [node name="Enemy_Death_Particles" parent="." index="2" unique_id=731532511]

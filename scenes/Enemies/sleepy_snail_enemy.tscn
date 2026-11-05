@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bwpgrofkpc2xk"]
+
+[ext_resource type="PackedScene" uid="uid://bk2ordj7aedu3" path="res://scenes/Enemies/enemy.tscn" id="1_brxna"]
+[ext_resource type="Script" uid="uid://b7p7p4q2w1hpu" path="res://scripts/enemies/sleepy_snail_enemy.gd" id="2_rgt3a"]
+[ext_resource type="Texture2D" uid="uid://cxf811o6egryt" path="res://assets/sprites/critters/sleepy_snail/sleepy_snail_frame1.png" id="3_incdn"]
+[ext_resource type="Texture2D" uid="uid://govty81t7ul4" path="res://assets/sprites/critters/sleepy_snail/sleepy_snail_frame2.png" id="4_8muea"]
+[ext_resource type="Texture2D" uid="uid://ba6fp8rpa73hu" path="res://assets/sprites/critters/sleepy_snail/sleepy_snail_frame3.png" id="5_jwr7s"]
+
+[node name="sleepy_snail" unique_id=481933772 instance=ExtResource("1_brxna")]
+script = ExtResource("2_rgt3a")
+move_speed_override = 90.0
+preferred_min_distance = 220.0
+preferred_max_distance = 360.0
+turn_rate = 3.0
+edge_margin = 80.0
+strafe_speed = 40.0
+fire_interval = 2.0
+fire_interval_jitter = 0.6
+contact_damage = 1.0
+point_worth = 10
+idle_frames = Array[Texture2D]([ExtResource("3_incdn"), ExtResource("4_8muea"), ExtResource("5_jwr7s")])
+
+[node name="Enemy_Sprite" type="Sprite2D" parent="." index="3" unique_id=1686108869]
+position = Vector2(0, -10)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_incdn")

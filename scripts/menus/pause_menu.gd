@@ -31,6 +31,9 @@ func _unhandled_input(event):
 
 
 func toggle_pause_menu():
+	# The game-over screen owns the paused state once the player has died.
+	if not GameStateHandler.alive:
+		return
 	game_paused = !game_paused
 	self.visible = game_paused
 	get_tree().paused = game_paused

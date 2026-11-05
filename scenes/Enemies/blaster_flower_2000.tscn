@@ -9,6 +9,8 @@
 script = ExtResource("2_577ky")
 turn_rate = 0.8
 move_speed = 600.0
+contact_damage = 1.0
+point_worth = 25
 idle_frames = Array[Texture2D]([ExtResource("3_5cwlb"), ExtResource("4_577ky")])
 
 [node name="Enemy_Sprite" type="Sprite2D" parent="." index="3" unique_id=1210180523]

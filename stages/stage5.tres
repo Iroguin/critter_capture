@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://y6dk4q0p6m60" path="res://scenes/Enemies/plant_enemy.tscn" id="4_plant"]
 [ext_resource type="PackedScene" uid="uid://6gwgtyfnxkky" path="res://scenes/Enemies/rat_enemy.tscn" id="5_rat"]
 [ext_resource type="PackedScene" uid="uid://82mwsdxnt2yv" path="res://scenes/Enemies/toukka_enemy.tscn" id="6_toukka"]
+[ext_resource type="PackedScene" uid="uid://bwpgrofkpc2xk" path="res://scenes/Enemies/sleepy_snail_enemy.tscn" id="7_snail"]
 
 [resource]
 script = ExtResource("1_script")
 time_threshold = 220.0
 spawn_interval = 2.4
-enemy_scenes = Array[PackedScene]([ExtResource("2_fish"), ExtResource("3_omen"), ExtResource("4_plant"), ExtResource("5_rat"), ExtResource("6_toukka")])
-enemy_weights = Array[float]([0.6, 0.7, 0.3, 0.7, 0.6])
+enemy_scenes = Array[PackedScene]([ExtResource("2_fish"), ExtResource("3_omen"), ExtResource("4_plant"), ExtResource("5_rat"), ExtResource("6_toukka"), ExtResource("7_snail")])
+enemy_weights = Array[float]([0.6, 0.7, 0.3, 0.7, 0.6, 0.3])
 metadata/_custom_type_script = "uid://bl1g5hdbjohs1"

@@ -8,8 +8,7 @@ extends Enemy
 # Each hop, sample this many candidate landing spots within hop_distance.
 @export var hop_candidate_count: int = 8
 # When the player is farther than this, the omenamato wanders randomly instead
-# of fleeing. This prevents it from locking onto a "safest" corner forever:
-# once the player walks away, it'll happily mill about and leave the corner.
+# of fleeing.
 @export var flee_distance: float = 350.0
 
 @onready var drop_collectable: PackedScene = preload("res://scenes/collectables/speed_collectable.tscn")

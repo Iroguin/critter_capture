@@ -15,8 +15,10 @@ hop_duration = 0.4
 idle_duration = 0.8
 hop_height = 30.0
 edge_margin = 100.0
+hop_candidate_count = 8
+flee_distance = 350.0
 contact_damage = 1.0
-point_worth = 10
+point_worth = 6
 idle_frames = Array[Texture2D]([ExtResource("3_vajmo"), ExtResource("4_dsjlv"), ExtResource("5_nu1t2")])
 special_sprites = {
 "jump": ExtResource("6_jump")

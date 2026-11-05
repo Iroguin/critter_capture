@@ -13,7 +13,7 @@ weave_frequency = 0.5
 weave_amplitude = 3.0
 contact_damage = 1.0
 move_speed = 80.0
-point_worth = 4
+point_worth = 3
 idle_frames = Array[Texture2D]([ExtResource("3_c5edu"), ExtResource("4_4mlek"), ExtResource("5_56ma3")])
 
 [node name="Enemy_Sprite" type="Sprite2D" parent="." index="3" unique_id=877748455]
